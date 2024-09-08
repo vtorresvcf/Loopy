@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faCoins } from '@fortawesome/free-solid-svg-icons';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-export const EditUserPrice = ({ increaseProgress }) => {
-    const [userPrice, setUserPrice] = useState(50); 
+export const EditUserPrice = () => {
+    const [userPrice, setUserPrice] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [selectedCurrency, setSelectedCurrency] = useState('EUR');
     const handleShow = () => setShowModal(true);
@@ -13,34 +13,35 @@ export const EditUserPrice = ({ increaseProgress }) => {
     const handleSave = (e) => {
         e.preventDefault();
         handleClose();
-        increaseProgress(10); 
     };
 
-    
+
     const handleRangeChange = (e) => {
         setUserPrice(e.target.value);
     };
 
-    
+
     const handleCurrencyChange = (e) => {
         setSelectedCurrency(e.target.value);
     };
 
     return (
         <>
-            <div className="d-flex align-items-center" style={{ color: 'Black', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
-            <button
+            <div className="d-flex align-items-center" style={{ color: 'Black', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '25px', }}>
+
+
+                <FontAwesomeIcon icon={faCoins} style={{ width: '25px', height: '25px', color: "#6793AE", marginRight: '10px' }} />
+                <p className="mb-0">Precio/Hora: {userPrice && (<p>{`${userPrice} ${selectedCurrency}`}</p>)}</p>
+
+                <button
                     type="button"
                     className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center ms-2"
                     style={{ width: 25, height: 25, backgroundColor: 'rgba(103, 147, 174, 1)', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)', marginRight: '10px' }}
                     onClick={handleShow}
                 >
-                    <FontAwesomeIcon icon={faEdit}  style={{width: '15px', height: '15px',}}/>
+                    <FontAwesomeIcon icon={faEdit} style={{ width: '15px', height: '15px', }} />
                 </button>
-                <div>
-                    <p className="mb-0">Precio/Hora</p> 
-                    <p className="mb-0">{`${userPrice} ${selectedCurrency}`}</p> 
-                </div>
+
             </div>
 
             <Modal show={showModal} onHide={handleClose} centered>
@@ -78,10 +79,10 @@ export const EditUserPrice = ({ increaseProgress }) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: 'rgba(103, 147, 174, 1)' }}>
+                    <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
                         Cancelar
                     </Button>
-                    <Button type="submit" variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
+                    <Button type="submit" variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 1)' }}>
                         Guardar
                     </Button>
                 </Modal.Footer>

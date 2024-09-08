@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import DefaultPhoto from "../../img/img-perfil-default.jpg"
 
 function ProfileImage() {
   const [image, setImage] = useState(null);
@@ -17,8 +18,7 @@ function ProfileImage() {
     };
     reader.readAsDataURL(file);
 
-    
-    increaseProgress(10);
+
   };
 
   const handleSave = () => {
@@ -34,14 +34,14 @@ function ProfileImage() {
 
   return (
     <div className="text-center">
-      <div className="d-flex flex-column align-items-center mb-3">
+      <div className="d-flex align-items-center mb-3">
         <img
-          src={preview || "https://via.placeholder.com/150"}
+          src={preview || DefaultPhoto}
           alt="Profile"
           className="rounded"
-          width="200"
-          height="200"
-          
+          width="300"
+          height="300"
+
         />
         <Button
           className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center mt-2"
@@ -59,10 +59,10 @@ function ProfileImage() {
         <Modal.Body>
           <Form onKeyDown={handleKeyDown}>
             <Form.Group controlId="formFile">
-              <Form.Control 
-                type="file" 
-                accept="image/*" 
-                onChange={handleImageChange} 
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
               />
             </Form.Group>
             {preview && (
@@ -80,10 +80,10 @@ function ProfileImage() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)} style={{  backgroundColor: 'rgba(103, 147, 174, 1)' }}>
+          <Button variant="secondary" onClick={() => setShowModal(false)} style={{ backgroundColor: 'rgba(103, 147, 174, 1)' }}>
             Cancelar
           </Button>
-          <Button variant="secondary" onClick={handleSave} style={{  backgroundColor: 'rgba(103, 147, 174, 0.27)' , color: 'rgba(103, 147, 174, 1)' }}>
+          <Button variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
             Guardar Cambios
           </Button>
         </Modal.Footer>

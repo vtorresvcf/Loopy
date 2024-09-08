@@ -1,41 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { Context } from "../../store/appContext"
 
-export const UserNameEdit = ({ increaseProgress }) => {
-    const [UserName, setUserName] = useState('NOMBRE PROGRAMADOR'); 
-    const [showModal, setShowModal] = useState(false); 
-    const [newUserName, setNewUserName] = useState(UserName); 
+export const UserNameEdit = ({ formData }) => {
+    const { store } = useContext(Context);
+    const [UserName, setUserName] = useState('NOMBRE PROGRAMADOR');
+    const [showModal, setShowModal] = useState(false);
+    const [newUserName, setNewUserName] = useState(UserName);
 
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
     const handleSave = (e) => {
-        e.preventDefault(); 
-        setUserName(newUserName); 
+        e.preventDefault();
+        setUserName(newUserName);
         handleClose();
         increaseProgress(10);
     };
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); 
+            e.preventDefault();
             handleSave(e);
         }
     };
 
     return (
         <>
-            <div className="d-flex align-items-center" style={{ color: 'white' }}>
-                <h1 className="mb-0">{UserName}</h1>
+            <div className="d-flex align-items-center">
+                <h1 className="mb-0">Nombre: <span className='text-white'> {store.user?.name} {store.user?.username}</span></h1>
                 <button
                     type="button"
                     className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center ms-2"
                     style={{ width: 25, height: 25, backgroundColor: 'rgba(103, 147, 174, 1)', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}
                     onClick={handleShow}
                 >
-                    <FontAwesomeIcon icon={faEdit}  style={{width: '15px', height: '15px',}}/>
+                    <FontAwesomeIcon icon={faEdit} style={{ width: '15px', height: '15px', }} />
                 </button>
             </div>
 
@@ -55,10 +57,10 @@ export const UserNameEdit = ({ increaseProgress }) => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose} style={{  backgroundColor: 'rgba(103, 147, 174, 1)' }}>
+                    <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
                         Cancelar
                     </Button>
-                    <Button  type="submit" variant="secondary" onClick={handleSave} style={{  backgroundColor: 'rgba(103, 147, 174, 0.27)' , color: 'rgba(103, 147, 174, 1)' }}>
+                    <Button type="submit" variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 1)' }}>
                         Guardar
                     </Button>
                 </Modal.Footer>

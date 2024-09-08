@@ -11,15 +11,10 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar" style={{ backgroundColor: "#6793AE", height: "120px" }}>
+    <nav className="navbar d-flex align-items-center" style={{ backgroundColor: "#6793AE", height: "120px" }}>
       <div className="container-fluid">
-        <Link to={""} className="navbar-brand">
-          <img
-            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
-            alt="Bootstrap"
-            width="30"
-            height="24"
-          />
+        <Link to={"/"} className="navbar-brand">
+          <h1 className="fw-bold " style={{ fontFamily: "Brush Script MT", color: "white", fontSize: "4rem", marginLeft: "2rem" }}>LOOPY</h1>
         </Link>
 
         <div className="navbar navbar-expand-sm ms-auto">
@@ -68,7 +63,7 @@ export const Navbar = () => {
                     >
                       PERFIL
                     </Link>
-                    </>
+                  </>
                 )}
 
                 {store.user ? (
@@ -82,18 +77,18 @@ export const Navbar = () => {
 
                     </Link>
                     {store.user.profile_empleador && (
-                       <button
-                       type="button"
-                       className="btn rounded-pill me-4 pe-none"
-                       style={{
-                         backgroundColor: "#70879C",
-                         borderColor: "white",
-                         color: "white",
-                       }}
-                     >
-                       Suscripción: {store.user.profile_empleador.premium ? "Premium" : "Free"}
-                     </button>
-                   
+                      <button
+                        type="button"
+                        className="btn rounded-pill me-4 pe-none"
+                        style={{
+                          backgroundColor: "#70879C",
+                          borderColor: "white",
+                          color: "white",
+                        }}
+                      >
+                        Suscripción: {store.user.profile_empleador.premium ? "Premium" : "Free"}
+                      </button>
+
                     )}
 
                     <button

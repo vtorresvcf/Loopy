@@ -89,7 +89,7 @@ export const Register = () => {
                     type="text"
                     className="sombreado form-control"
                     id="username"
-                    placeholder="Apellidos.."
+                    placeholder="Apellidos.. (Si eres empresa Razón social)"
                     {...register("username", { required: true })}
                     aria-invalid={errors.username ? "true" : "false"}
                   />
@@ -164,7 +164,7 @@ export const Register = () => {
                     className="form-control sombreado"
                     id="cif"
                     {...register("cif")}
-                    placeholder="Escriba el CIF.."
+                    placeholder="CIF.. (Rellenar solo si eres empresa)"
                   />
                 </div>
 

@@ -1,60 +1,79 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import ProfileImage from '../ProfileImage';
 import { UserNameEdit } from './EditUserName';
 import { EditUserPhone } from './EditUserPhone';
 import { EditUserMail } from './EditUserMail';
-import ProfileProgress from '../ProfileProgress';
-import CountrySelector from '../userview/Dropdown';
-import Stars from '../stars';
 import SkillRow from './CardHabilities';
 import CarrerSelector from './dropdownuser';
 import { EditUserPrice } from './EditUserPriceH';
+import { Context } from "../../store/appContext"
 
 const UsersProfile = () => {
-    const [progress, setProgress] = React.useState(0);
+    const { store } = useContext(Context);
+    const [formData, setFormData] = useState({
+        name: "",
+        username: "",
+        photo: "",
+        email: "",
+        country: "",
+        precio_hora: "",
+        tecnologias: "",
+        experiencia: "",
+        descripcion: "",
+
+    })
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.namme]: e.target.value })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
+
+    useEffect(() => {
+        setFormData({
+            name: `${store.user?.name}`,
+            username: `${store.user?.username}`,
+            photo: `${store.user?.photo}`,
+            phone: `${store.user?.phone}`,
+            email: `${store.user?.email}`,
+            country: `${store.user?.country}`,
+            precio_hora: `${store.user?.profile_programador.precio_hora}`,
+            tecnologias: `${store.user?.profile_programador.tecnologias}`,
+            experiencia: `${store.user?.profile_programador.experiencia}`,
+            descripcion: `${store.user?.profile_programador.descripcion}`,
+        })
+
+    }, [])
+    console.log(formData)
     return (
         <div style={styles.pageContainer}>
             <div className="row" style={styles.row}>
-                <div className="col-lg-9" style={styles.flexContainer}>
+                <div className="col-lg-12" style={styles.flexContainer}>
                     <div className="card mb-4" style={styles.profileCard}>
-                        <div className="row">
-                            <div className="col-md-2" style={styles.profileColumn}>
-                                <div style={styles.profileImageContainer}>
-                                    <ProfileImage />
-                                    <div style={styles.priceContainer}>
-                                        <EditUserPrice />
-                                    </div>
-                                </div>
+                        <div className="row d-flex justify-content-between  align-items-center">
+                            <div className="col-md-3" >
+                                <ProfileImage />
                             </div>
 
-                            <div className="col-md-7" style={styles.centerColumn}>
-                                <div style={styles.topLeftAligned}>
-                                    <div style={styles.userNameContainer}>
-                                        <UserNameEdit />
-                                    </div>
-                                    <div style={styles.carrerSelectorContainer}>
-                                        <CarrerSelector />
-                                    </div>
+                            <div className="col-md-8 " >
+                                <div className='row'>
+
+
+                                    <UserNameEdit formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                                    <CarrerSelector formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                                    <EditUserMail formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                                    <EditUserPrice formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                                    <EditUserPhone formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
                                 </div>
-                                <div style={styles.rightAligned}>
-                                    <div style={styles.contactContainer}>
-                                        <EditUserPhone />
-                                        <EditUserMail />
-                                    </div>
-                                </div>
+
+
                             </div>
 
-                            <div className="col-md-2" style={styles.rightColumn}>
-                                <div style={styles.rightAlignedContainer}>
-                                    <div style={styles.starsContainer}>
-                                        <Stars rating={4.3} />
-                                    </div>
-                                    <div style={styles.countrySelectorContainer}>
-                                        <CountrySelector />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
                     </div>
 
                     <div className="card" style={styles.skillCard}>
@@ -62,38 +81,7 @@ const UsersProfile = () => {
                     </div>
                 </div>
 
-                <div className="col-lg-3 text-center" style={styles.flexContainer}>
-                    <div className="card" style={styles.progressCard}>
-                        <ProfileProgress progress={78} />
-                        
-                        <div className="row justify-content-around">
-                            <div className="col-6">
-                                <div className="text-start">
-                                    <p>Proyectos completados</p>
-                                    <p>Proyectos en curso</p>
-                                    <p>Calificación de clientes</p>
-                                    <p>Penalizaciones</p>
-                                    <p>Certificados</p>
-                                    <p>Favoritos</p>
-                                    <p>Proyectos destacados</p>
-                                    <p>Empresas con las que trabajaste</p>
-                                </div>
-                            </div>
-                            <div className="col-2">
-                                <div className="text-end">
-                                    <p>5</p>
-                                    <p>4</p>
-                                    <p>7</p>
-                                    <p>1</p>
-                                    <p>9</p>
-                                    <p>5</p>
-                                    <p>7</p>
-                                    <p>6</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     );
@@ -155,7 +143,7 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '10px', 
+        gap: '10px',
     },
     userNameContainer: {
         marginBottom: '20px',
