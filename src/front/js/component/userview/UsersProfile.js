@@ -4,8 +4,8 @@ import { UserNameEdit } from './EditUserName';
 import { EditUserPhone } from './EditUserPhone';
 import { EditUserMail } from './EditUserMail';
 import SkillRow from './CardHabilities';
-import CarrerSelector from './dropdownuser';
 import { EditUserPrice } from './EditUserPriceH';
+import { EditUserCountry } from './EditUserCountry';
 import { Context } from "../../store/appContext"
 
 const UsersProfile = () => {
@@ -54,19 +54,17 @@ const UsersProfile = () => {
                 <div className="col-lg-12" style={styles.flexContainer}>
                     <div className="card mb-4" style={styles.profileCard}>
                         <div className="row d-flex justify-content-between  align-items-center">
-                            <div className="col-md-3" >
+                            <div className="col-md-2" >
                                 <ProfileImage />
                             </div>
 
-                            <div className="col-md-8 " >
+                            <div className="col-md-7" >
                                 <div className='row'>
-
-
                                     <UserNameEdit formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                    <CarrerSelector formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
                                     <EditUserMail formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
                                     <EditUserPrice formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
                                     <EditUserPhone formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
+                                    <EditUserCountry formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
                                 </div>
 
 

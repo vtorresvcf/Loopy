@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { FaUpload } from 'react-icons/fa'; 
+import { FaUpload } from 'react-icons/fa';
 
 
 const SkillRow = ({ skill }) => {
@@ -27,7 +27,7 @@ const SkillRow = ({ skill }) => {
 
 const SkillsTable = () => {
     const [skills, setSkills] = useState([
-        
+
     ]);
 
     const [showModal, setShowModal] = useState(false);
@@ -48,7 +48,7 @@ const SkillsTable = () => {
             return;
         }
 
-        
+
         let iconUrl = '';
         switch (newSkill.language) {
             case 'JavaScript':
@@ -67,10 +67,10 @@ const SkillsTable = () => {
                 break;
         }
 
-        
+
         setSkills([...skills, { ...newSkill, icon: iconUrl }]);
 
-       
+
         setNewSkill({ language: '', experience: '', projects: 0, certificateName: '', certificateLink: '#', icon: '' });
         setShowModal(false);
     };
@@ -83,12 +83,12 @@ const SkillsTable = () => {
 
     return (
         <div className="card mb-4" style={{ borderRadius: '8px', padding: '20px', backgroundColor: 'white' }}>
-            <div className="card-header" style={{ backgroundColor: '#6793AE', color: 'white', borderRadius: '8px 8px 0 0', padding: '15px' }}>
-                <h4 className="mb-0 text-center">Habilidades</h4>
+            <div className="card-header " style={{ backgroundColor: '#6793AE', color: 'white', borderRadius: '8px 8px 0 0', padding: '15px' }}>
+                <h4 className="mb-0 text-center">Tecnologias que dominas</h4>
             </div>
-            <div className="card-body">
-                <Button variant="outline-secondary" onClick={() => setShowModal(true)}>
-                    Añadir Habilidad
+            <div className="card-body mx-auto">
+                <Button variant="outline-secondary " onClick={() => setShowModal(true)}>
+                    Añadir tecnologia
                 </Button>
                 <table className="table table-borderless table-hover table-striped text-center mt-4" style={{ backgroundColor: '#D9D9D9' }}>
                     <thead>
@@ -107,7 +107,7 @@ const SkillsTable = () => {
                 </table>
             </div>
 
-            
+
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Añadir Nueva Habilidad</Modal.Title>

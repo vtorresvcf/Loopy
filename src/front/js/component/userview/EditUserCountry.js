@@ -4,19 +4,18 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { Context } from "../../store/appContext"
 
-export const EditDescriptionUserAccordion = () => {
-    const [descriptionUserAccordion, setDescriptionUserAccordion] = useState('Cuentanos lo mas importante de ti');
+export const EditUserCountry = ({ increaseProgress }) => {
     const [showModal, setShowModal] = useState(false);
-    const [newDescriptionUserAccordion, setNewDescriptionUserAccordion] = useState(descriptionUserAccordion);
+    const [newUserCountry, setNewUserCountry] = useState("");
     const { store } = useContext(Context);
-
     const handleShow = () => setShowModal(true);
     const handleClose = () => setShowModal(false);
 
     const handleSave = (e) => {
         e.preventDefault();
-        setDescriptionUserAccordion(newDescriptionUserAccordion);
+        setNewUserCountry(newUserCountry);
         handleClose();
+        increaseProgress(10);
     };
 
     const handleKeyDown = (e) => {
@@ -29,40 +28,46 @@ export const EditDescriptionUserAccordion = () => {
     return (
         <>
             <div className="d-flex align-items-center" style={{
-                color: 'white', fontFamily: 'Arial, sans-serif',
-                fontWeight: 'bold',
+                color: 'Black', fontFamily: 'Arial, sans-serif',
+                fontWeight: 'bold', fontSize: '25px',
             }}>
-                <p className="mb-0">{store.user?.profile_programador.descripcion}</p>
+                <p className="mb-0">
+                    <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+                    País: <p className='text-white'>{store.user?.country}</p>
+                </p>
+
                 <button
                     type="button"
-                    className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center ms-2 border-none"
-                    style={{ width: 30, height: 30, backgroundColor: 'rgba(112, 135, 156, 1)', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}
+                    className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center ms-2"
+                    style={{ width: 25, height: 25, backgroundColor: 'rgba(103, 147, 174, 1)', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}
                     onClick={handleShow}
                 >
-                    <FontAwesomeIcon icon={faEdit} />
+                    <FontAwesomeIcon icon={faEdit} style={{ width: '15px', height: '15px', }} />
                 </button>
-            </div>
+            </div >
 
             <Modal show={showModal} onHide={handleClose} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Cuentanos lo mas importante de tu carrera..!</Modal.Title>
+                    <Modal.Title>Editar País</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onKeyDown={handleKeyDown} onSubmit={handleSave}>
-                        <Form.Group controlId="formDescriptionUserAccordion">
+                        <Form.Group controlId="formUserPhone">
                             <Form.Control
                                 type="text"
-                                value={newDescriptionUserAccordion}
-                                onChange={(e) => setNewDescriptionUserAccordion(e.target.value)}
+                                className="form-control"
+                                value={newUserCountry}
+                                onChange={(e) => setNewUserCountry(e.target.value)}
+                                placeholder="Número de teléfono"
                             />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
                         Cancelar
                     </Button>
-                    <Button type="submit" variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 0.27)', color: 'rgba(103, 147, 174, 1)' }}>
+                    <Button type="submit" variant="secondary" onClick={handleSave} style={{ backgroundColor: 'rgba(103, 147, 174, 1)' }}>
                         Guardar
                     </Button>
                 </Modal.Footer>
