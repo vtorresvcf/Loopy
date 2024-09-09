@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import ProfileImage from '../ProfileImage';
-import { UserNameEdit } from './EditUserName';
-import { EditUserPhone } from './EditUserPhone';
-import { EditUserMail } from './EditUserMail';
 import SkillRow from './CardHabilities';
-import { EditUserPrice } from './EditUserPriceH';
-import { EditUserCountry } from './EditUserCountry';
+
 import { Context } from "../../store/appContext"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faCoins, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const UsersProfile = () => {
     const { store } = useContext(Context);
@@ -54,19 +53,72 @@ const UsersProfile = () => {
                 <div className="col-lg-12" style={styles.flexContainer}>
                     <div className="card mb-4" style={styles.profileCard}>
                         <div className="row d-flex justify-content-between  align-items-center">
-                            <div className="col-md-2" >
+                            <div className="col-md-3" >
                                 <ProfileImage />
                             </div>
 
-                            <div className="col-md-7" >
-                                <div className='row'>
-                                    <UserNameEdit formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                    <EditUserMail formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                    <EditUserPrice formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                    <EditUserPhone formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                    <EditUserCountry formdata={formData} setFormData={setFormData} handleChange={handleChange} handleSubmit={handleSubmit} />
-                                </div>
+                            <div className="col-md-9 " >
+                                <div className='row mx-4'>
+                                    <div className="d-flex align-items-center">
+                                        <h1 className="mb-0 text-white">{store.user?.username}</h1>
 
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='name' value={formData.name} class="form-control" id="floatingInput" placeholder="Nombre" />
+                                            <label for="floatingInput">Nombre</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='username' value={formData.username} class="form-control" id="floatingInput" placeholder="Apellido" />
+                                            <label for="floatingInput">Apellidos</label>
+                                        </div>
+
+
+                                    </div>
+                                    <div className="d-flex align-items-center" >
+                                        <FontAwesomeIcon icon={faEnvelope} style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }} />
+                                        <div class="form-floating mb-3">
+                                            <input type="email" name='email' value={formData.email} class="form-control" id="floatingInput" placeholder="Email" />
+                                            <label for="floatingInput">Email</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="d-flex align-items-center" >
+
+
+                                        <FontAwesomeIcon icon={faCoins} style={{ width: '25px', height: '25px', color: "#6793AE", marginRight: '10px' }} />
+                                        <div class="form-floating mb-3">
+                                            <input type="number" name='precio_hora' value={formData.precio_hora} class="form-control" id="floatingInput" placeholder="Precio hora" />
+                                            <label for="floatingInput">OPrecio/Hora</label>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="d-flex align-items-center">
+
+                                        <FontAwesomeIcon
+                                            icon={faPhone}
+                                            style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}
+                                        />
+                                        <div class="form-floating mb-3">
+                                            <input type="tel" name='phone' value={formData.phone} class="form-control" id="floatingInput" placeholder="Teléfono" />
+                                            <label for="floatingInput">Teléfono</label>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                        <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name='phone' value={formData.phone} class="form-control" id="floatingInput" placeholder="País" />
+                                            <label for="floatingInput">Pais</label>
+                                        </div>
+
+
+                                    </div >
+                                </div>
 
                             </div>
 

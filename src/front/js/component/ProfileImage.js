@@ -38,9 +38,7 @@ function ProfileImage() {
         <img
           src={preview || DefaultPhoto}
           alt="Profile"
-          className="rounded"
-          width="300"
-          height="300"
+          className="rounded img-fluid"
 
         />
         <Button

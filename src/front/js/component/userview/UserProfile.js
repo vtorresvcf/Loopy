@@ -12,7 +12,7 @@ const UserProfile = () => {
     return (
         <div>
             <div className="row">
-                <div className="col">
+                <div className="col-m-2">
                     <EditCompanyDescription />
                     <EditCompanyName />
                     <EditCompanyMail />
