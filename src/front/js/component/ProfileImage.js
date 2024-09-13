@@ -34,21 +34,7 @@ function ProfileImage() {
 
   return (
     <div className="text-center">
-      <div className="d-flex align-items-center mb-3">
-        <img
-          src={preview || DefaultPhoto}
-          alt="Profile"
-          className="rounded img-fluid"
-
-        />
-        <Button
-          className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center mt-2"
-          style={{ width: 30, height: 30, backgroundColor: 'rgba(103, 147, 174, 1)', boxShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)' }}
-          onClick={() => setShowModal(true)}
-        >
-          <FontAwesomeIcon icon={faEdit} />
-        </Button>
-      </div>
+      
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
