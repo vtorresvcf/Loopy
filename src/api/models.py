@@ -93,18 +93,13 @@ class User(db.Model):
         }
 
 
-class Experience(Enum):
-    JUNIOR = 'junior'
-    MID = 'mid-level'
-    SENIOR = 'senior'
-
 
 class Programador(db.Model):
     __tablename__ = "programador"
     id = db.Column(db.Integer, primary_key=True)
     precio_hora = db.Column(db.Integer)
     tecnologias = db.Column(db.String(200))
-    experiencia = db.Column(db.Enum(Experience))
+    experiencia = db.Column(db.String(20))
     descripcion = db.Column(db.String(300))
     rating_value = db.Column(db.Float(2))
     proyectos = db.relationship("Proyectos", backref="programador", lazy=True)
@@ -120,7 +115,7 @@ class Programador(db.Model):
             "id": self.id,
             "precio_hora": self.precio_hora,
             "tecnologias": self.tecnologias,
-            "experiencia": self.experiencia.value if self.experiencia else None,
+            "experiencia": self.experiencia,
             "descripcion": self.descripcion,
             "rating_value": self.rating_value,
             "proyectos": [proyecto.serialize() for proyecto in self.proyectos],
@@ -175,7 +170,7 @@ class Ofertas(db.Model):
     idiomas = db.Column(db.String(30))
     plazo = db.Column(db.String(100), nullable=False)
     modalidad = db.Column(db.Enum(Modalidad), nullable=False)
-    experiencia_minima = db.Column(db.Enum(Experience), nullable=False)
+    experiencia_minima = db.Column(db.String(30), nullable=False)
     fecha_publicacion = db.Column(db.Date, nullable=False)
     postulados = db.relationship("Postulados", backref="ofertas", lazy=True)
     favoritos = db.relationship("Favoritos", backref="ofertas", lazy=True)
@@ -199,7 +194,7 @@ class Ofertas(db.Model):
             "idiomas": self.idiomas,
             "plazo": self.plazo,
             "modalidad": self.modalidad.value,
-            "experiencia_minima": self.experiencia_minima.value,
+            "experiencia_minima": self.experiencia_minima,
             "fecha_publicacion": self.fecha_publicacion.isoformat(),
             "empleador_id": self.empleador_id,
             "postulados": [postulado.serialize() for postulado in self.postulados] if self.postulados else None,

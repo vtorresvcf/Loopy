@@ -4,7 +4,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from datetime import datetime
 from flask import Flask, request, jsonify, url_for, Blueprint
 import os
-from api.models import Modalidad, Postulados, db, User, Programador, Empleador, Ratings, Favoritos, Ofertas, Experience, Proyectos, Contact
+from api.models import Modalidad, Postulados, db, User, Programador, Empleador, Ratings, Favoritos, Ofertas, Proyectos, Contact
 from flask_jwt_extended import create_access_token,get_jwt_identity,jwt_required
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
@@ -122,6 +122,8 @@ def editProgramador():
     username = request.json.get("username")
     email = request.json.get("email")
     country = request.json.get("country")
+    photo = request.json.get("photo")
+    phone = request.json.get("phone")
     precio_hora = request.json.get("precio_hora", None)
     tecnologias = request.json.get("tecnologias", None)
     experiencia = request.json.get("experiencia", None)
@@ -132,6 +134,8 @@ def editProgramador():
     user.username=username
     user.email=email
     user.country=country
+    user.photo=photo
+    user.phone=phone
     programador.precio_hora = precio_hora
     programador.tecnologias = tecnologias
     programador.experiencia = experiencia

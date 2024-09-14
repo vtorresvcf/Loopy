@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 61e3ecd2827a
+Revision ID: f99449b52b60
 Revises: 
-Create Date: 2024-09-07 19:38:04.577902
+Create Date: 2024-09-14 14:26:52.987929
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '61e3ecd2827a'
+revision = 'f99449b52b60'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -54,7 +54,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('precio_hora', sa.Integer(), nullable=True),
     sa.Column('tecnologias', sa.String(length=200), nullable=True),
-    sa.Column('experiencia', sa.Enum('JUNIOR', 'MID', 'SENIOR', name='experience'), nullable=True),
+    sa.Column('experiencia', sa.String(length=20), nullable=True),
     sa.Column('descripcion', sa.String(length=300), nullable=True),
     sa.Column('rating_value', sa.Float(precision=2), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -75,7 +75,7 @@ def upgrade():
     sa.Column('idiomas', sa.String(length=30), nullable=True),
     sa.Column('plazo', sa.String(length=100), nullable=False),
     sa.Column('modalidad', sa.Enum('TELETRABAJO', 'PRESENCIAL', 'HYBRIDO', name='modalidad'), nullable=False),
-    sa.Column('experiencia_minima', sa.Enum('JUNIOR', 'MID', 'SENIOR', name='experience'), nullable=False),
+    sa.Column('experiencia_minima', sa.String(length=30), nullable=False),
     sa.Column('fecha_publicacion', sa.Date(), nullable=False),
     sa.Column('empleador_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['empleador_id'], ['empleador.id'], ),

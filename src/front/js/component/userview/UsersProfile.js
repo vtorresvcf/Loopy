@@ -9,7 +9,7 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 
 const UsersProfile = () => {
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [edit, setEdit] = useState(false)
     const [formData, setFormData] = useState({
         name: store.user?.name,
@@ -39,13 +39,6 @@ const UsersProfile = () => {
         }
     };
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -53,9 +46,11 @@ const UsersProfile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setFormData({
-            photo: selectedImage
-        })
+        const token = localStorage.getItem("token")
+        setFormData({ ...formData, photo: selectedImage })
+
+        actions.editUser(formData, "Programador", token)
+
 
     }
 
@@ -65,124 +60,150 @@ const UsersProfile = () => {
             <div className="row" style={styles.row}>
                 <div className="col-lg-12" style={styles.flexContainer}>
                     <div className="card mb-4" style={styles.profileCard}>
+                        {store.editar && (
 
-                        <form className='row' onSubmit={handleSubmit}>
+                            <div class="alert alert-success text-center" role="alert">
+                                {store.msg}
+                            </div>
 
-                            <div className='col-md-3 '>
+                        )}
 
-
-
-
-                                <img
-                                    src={!previewImage ? DefaultPhoto : previewImage}
-                                    alt="Vista previa"
-                                    className="rounded-circle"
-                                    width='200'
-                                    height='200'
-                                />
-                                {edit && (
-                                    <div className="mb-3">
-                                        <label htmlFor="imageUpload" className="form-label">Subir Imagen</label>
-                                        <input
-                                            className="form-control"
-                                            type="file"
-                                            id="imageUpload"
-                                            accept="image/*"
-                                            onChange={handleImageChange}
+                        <form onSubmit={handleSubmit}>
+                            <div className='row'>
+                                <div className='col-md-4'>
+                                    <div className='d-flex justify-content-center flex-column my-3'>
+                                        <img
+                                            src={!previewImage ? DefaultPhoto : previewImage}
+                                            alt="Vista previa"
+                                            className="rounded-circle  mx-auto"
+                                            width='200'
+                                            height='200'
                                         />
+                                        {edit && (
+                                            <div className="mb-3">
+                                                <label htmlFor="imageUpload" className="form-label">Subir Imagen</label>
+                                                <input
+                                                    className="form-control"
+                                                    type="file"
+                                                    id="imageUpload"
+                                                    accept="image/*"
+                                                    onChange={handleImageChange}
+                                                />
+                                            </div>
+                                        )}
                                     </div>
-                                )
+                                </div>
 
-                                }
+                                <div className='col-md-8'>
+                                    <div className="d-flex align-items-center ">
+                                        <i className="fa fa-user fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+                                        <div className="form-floating mb-3 w-50">
+                                            <input type="text" name='name' value={formData.name} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Nombre" />
+                                            <label htmlFor="floatingInput">Nombre</label>
 
 
+                                        </div>
+                                        <div className="form-floating mb-3 w-50">
+                                            <input type="text" name='username' value={formData.username} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Apellido" />
+                                            <label htmlFor="floatingInput">Apellidos</label>
+                                        </div>
+
+                                    </div>
+                                    <div className="d-flex align-items-center" >
+                                        <FontAwesomeIcon icon={faEnvelope} style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }} />
+                                        <div className="form-floating mb-3 w-50">
+                                            <input type="email" name='email' value={formData.email} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Email" />
+                                            <label htmlFor="floatingInput">Email</label>
+                                        </div>
+
+                                    </div>
+                                    <div className="d-flex align-items-center" >
+
+
+                                        <FontAwesomeIcon icon={faCoins} style={{ width: '25px', height: '25px', color: "#6793AE", marginRight: '10px' }} />
+                                        <div className="form-floating mb-3">
+                                            <input type="number" name='precio_hora' value={formData?.precio_hora} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Precio hora" />
+                                            <label htmlFor="floatingInput">Precio/Hora</label>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div className="d-flex align-items-center">
+
+                                        <FontAwesomeIcon
+                                            icon={faPhone}
+                                            style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}
+                                        />
+                                        <div className="form-floating mb-3">
+                                            <input type="tel" name='phone' value={formData?.phone} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Teléfono" />
+                                            <label htmlFor="floatingInput">Teléfono</label>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                        <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+                                        <div className="form-floating mb-3">
+                                            <input type="text" name='country' value={formData?.country} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="País" />
+                                            <label htmlFor="floatingInput">Pais</label>
+                                        </div>
+
+
+                                    </div >
+                                    <div className="d-flex align-items-center">
+
+
+                                        <i className="fa-solid fa-gears" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+                                        <div className="form-floating mb-3 w-75">
+                                            <input type="text" name='tecnologias' value={formData?.tecnologias} onChange={handleChange} className="form-control w-100" id="floatingInput" disabled={!edit} placeholder="Tecnologías" />
+                                            <label htmlFor="floatingInput">Tecnologias</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="d-flex align-items-center">
+
+                                        <i className="fa-solid fa-comment" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+                                        <textarea class="form-control" name='descripcion' value={formData?.descripcion} onChange={handleChange} placeholder="Descripción" id="floatingTextarea2" disabled={!edit} style={{ height: "100px" }}></textarea>
+
+
+                                    </div>
+
+                                    <div className="d-flex align-items-center">
+                                        <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
+
+
+                                        <div className="form-floating mb-3 w-75">
+                                            <input type="text" name='experiencia' value={formData?.experiencia} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Experiencia" />
+                                            <label htmlFor="floatingInput">Experiencia</label>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
 
                             </div>
 
 
 
 
-
-
-                            <div className='col'>
-
-
-                                <div className="d-flex align-items-center">
-                                    <i className="fa fa-user fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
-
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='name' value={formData.name} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Nombre" />
-                                        <label htmlFor="floatingInput">Nombre</label>
-                                    </div>
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='username' value={formData.username} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Apellido" />
-                                        <label htmlFor="floatingInput">Apellidos</label>
-                                    </div>
-
-
-                                </div>
-                                <div className="d-flex align-items-center" >
-                                    <FontAwesomeIcon icon={faEnvelope} style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }} />
-                                    <div className="form-floating mb-3 w-75">
-                                        <input type="email" name='email' value={formData.email} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Email" />
-                                        <label htmlFor="floatingInput">Email</label>
-                                    </div>
-
-                                </div>
-
-                                <div className="d-flex align-items-center" >
-
-
-                                    <FontAwesomeIcon icon={faCoins} style={{ width: '25px', height: '25px', color: "#6793AE", marginRight: '10px' }} />
-                                    <div className="form-floating mb-3">
-                                        <input type="number" name='precio_hora' value={formData?.precio_hora} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Precio hora" />
-                                        <label htmlFor="floatingInput">Precio/Hora</label>
-                                    </div>
-
-                                </div>
-
-
-                                <div className="d-flex align-items-center">
-
-                                    <FontAwesomeIcon
-                                        icon={faPhone}
-                                        style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}
-                                    />
-                                    <div className="form-floating mb-3">
-                                        <input type="tel" name='phone' value={formData?.phone} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Teléfono" />
-                                        <label htmlFor="floatingInput">Teléfono</label>
-                                    </div>
-
-
-
-                                </div>
-                                <div className="d-flex align-items-center">
-                                    <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
-
-                                    <div className="form-floating mb-3">
-                                        <input type="text" name='phone' value={formData?.phone} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="País" />
-                                        <label htmlFor="floatingInput">Pais</label>
-                                    </div>
-
-
-                                </div >
-                                <div className='row'>
-                                    <button onClick={() => setEdit(!edit)} type="button" className="btn btn-primary w-25 mx-2">Editar</button>
-                                    <button type="submit" className="btn btn-primary w-25">Guardar</button>
-                                </div>
-
-
+                            <div className='row'>
+                                <button onClick={() => setEdit(!edit)} type="button" className="w-25 btn btn-primary mx-auto">{edit ? "Guardar" : "Editar"}</button>
                             </div>
+
                         </form>
 
-
                     </div>
 
-                    <div className="card" style={styles.skillCard}>
-                        <SkillRow />
-                    </div>
                 </div>
-
 
             </div>
         </div>
@@ -192,7 +213,7 @@ const UsersProfile = () => {
 const styles = {
     pageContainer: {
         width: 'calc(100% - 10px)',
-        height: '700px',
+        height: '780px',
         margin: '5px',
         padding: '0',
         boxSizing: 'border-box',
