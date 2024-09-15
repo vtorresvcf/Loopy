@@ -11,19 +11,21 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar d-flex align-items-center" style={{ backgroundColor: "#6793AE", height: "120px" }}>
+    <nav className="navbar d-flex align-items-center" style={{
+      backgroundColor: "#6793AE", height: "130px"
+    }}>
       <div className="container-fluid">
-        <Link to={"/"} className="navbar-brand">
+        <Link to={"/"} className="navbar-brand ">
           <h1 className="fw-bold " style={{ fontFamily: "Brush Script MT", color: "white", fontSize: "4rem", marginLeft: "2rem" }}>LOOPY</h1>
         </Link>
 
-        <div className="navbar navbar-expand-sm ms-auto">
+        <div className="navbar navbar-expand-lg ms-auto d-inline-flex">
           <div className="container-fluid">
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav me-auto">
+              <div className="navbar-nav me-auto mx-auto">
                 <Link
                   to={"/"}
-                  className="nav-link active me-3"
+                  className="nav-link active "
                   style={{ color: "white" }}
                 >
                   INICIO
@@ -32,15 +34,16 @@ export const Navbar = () => {
                   <>
                     <Link
                       to={"/timeline"}
-                      className="nav-link active me-3"
+                      className="nav-link active "
                       style={{ color: "white" }}
                     >
                       OFERTAS
                     </Link>
                     <Link
                       to={"/Userview"}
-                      className="nav-link active me-3"
+                      className="nav-link active "
                       style={{ color: "white" }}
+
                     >
                       PERFIL
                     </Link>
@@ -50,7 +53,7 @@ export const Navbar = () => {
                   <>
                     <Link
                       to={"/formoffer"}
-                      className="nav-link active me-3"
+                      className="nav-link active "
                       style={{ color: "white" }}
                     >
                       CREAR OFERTA
@@ -58,7 +61,7 @@ export const Navbar = () => {
 
                     <Link
                       to={"/Companyview"}
-                      className="nav-link active me-3"
+                      className="nav-link active"
                       style={{ color: "white" }}
                     >
                       PERFIL
@@ -70,7 +73,7 @@ export const Navbar = () => {
                   <>
                     <Link
                       to="/favoritosPage"
-                      className="nav-link active me-3"
+                      className="nav-link active "
                       style={{ color: "white" }}
                     >
                       FAVORITOS
@@ -79,11 +82,12 @@ export const Navbar = () => {
                     {store.user.profile_empleador && (
                       <button
                         type="button"
-                        className="btn rounded-pill me-4 pe-none"
+                        className="btn rounded-pill pe-none"
                         style={{
                           backgroundColor: "#70879C",
                           borderColor: "white",
                           color: "white",
+
                         }}
                       >
                         Suscripción: {store.user.profile_empleador.premium ? "Premium" : "Free"}
@@ -93,27 +97,27 @@ export const Navbar = () => {
 
                     <button
                       type="button"
-                      className="btn rounded-pill me-3"
+                      className="btn rounded-pill mx-1 "
                       style={{
                         backgroundColor: "white",
                         borderColor: "white",
                         color: "#70879C",
                       }}
                     >
-                      Usuario: {store.user.name}
+                      {store.user.name}
                     </button>
 
                     <button
                       onClick={handleLogOutRedirect}
                       type="button"
-                      className="btn rounded-pill me-3"
+                      className="btn rounded-pill "
                       style={{
                         backgroundColor: "#70879C",
                         borderColor: "white",
                         color: "white",
                       }}
                     >
-                      Cerrar Sesión
+                      Logout
                     </button>
 
 
@@ -123,7 +127,7 @@ export const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate("/login")}
-                      className="btn rounded-pill me-4"
+                      className="btn rounded-pill"
                       style={{
                         backgroundColor: "#70879C",
                         borderColor: "#70879C",
@@ -134,7 +138,7 @@ export const Navbar = () => {
                     </button>
                     <button
                       type="button"
-                      className="btn rounded-pill me-3"
+                      className="btn rounded-pill "
                       style={{
                         backgroundColor: "white",
                         borderColor: "white",

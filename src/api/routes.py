@@ -94,6 +94,7 @@ def editEmpleador():
     username = request.json.get("username")
     email = request.json.get("email")
     country = request.json.get("country")
+    phone = request.json.get("phone")
     cif = request.json.get('cif')
     metodo_pago = request.json.get('metodo_pago')
     descripcion = request.json.get('descripcion')
@@ -106,6 +107,7 @@ def editEmpleador():
     user.email=email
     user.country = country
     user.photo = photo
+    user.phone = phone
     empleador.cif = cif
     empleador.metodo_pago = metodo_pago
     empleador.descripcion=descripcion

@@ -54,7 +54,6 @@ const UsersProfile = () => {
 
     }
 
-    console.log(formData)
     return (
         <div style={styles.pageContainer}>
             <div className="row" style={styles.row}>
@@ -213,7 +212,7 @@ const UsersProfile = () => {
 const styles = {
     pageContainer: {
         width: 'calc(100% - 10px)',
-        height: '780px',
+        height: 'auto',
         margin: '5px',
         padding: '0',
         boxSizing: 'border-box',

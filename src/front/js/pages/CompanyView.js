@@ -14,10 +14,6 @@ export const Companyview = () => {
                 <CompanyProfile />
 
 
-                <AccordionDescription title="Descripción">
-                    <EditDescriptionAccordion />
-                </AccordionDescription>
-
                 <AccordionSection title="Ofertas">
                     <div className="d-flex flex-wrap">
                         <OfferManager />

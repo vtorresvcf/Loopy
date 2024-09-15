@@ -13,7 +13,7 @@ export const Userview = () => {
             <div className='body'>
                 <UsersProfile />
 
-                <UserFavs title="Favs">
+                <UserFavs title="Favoritos">
                     <EditFavoritesUserAccordion />
                 </UserFavs>
 
