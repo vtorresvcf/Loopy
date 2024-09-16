@@ -1,10 +1,8 @@
 import React, { useState, useContext } from 'react';
-import SkillRow from './CardHabilities';
 import DefaultPhoto from "../../../img/img-perfil-default.jpg"
-
 import { Context } from "../../store/appContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faCoins, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCoins, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 
@@ -48,9 +46,8 @@ const UsersProfile = () => {
         e.preventDefault()
         const token = localStorage.getItem("token")
         setFormData({ ...formData, photo: selectedImage })
-
         actions.editUser(formData, "Programador", token)
-
+        setEdit(false)
 
     }
 
@@ -59,13 +56,13 @@ const UsersProfile = () => {
             <div className="row" style={styles.row}>
                 <div className="col-lg-12" style={styles.flexContainer}>
                     <div className="card mb-4" style={styles.profileCard}>
-                        {store.editar && (
+                        {store.editar ? (
 
-                            <div class="alert alert-success text-center" role="alert">
+                            <div className="alert alert-success text-center" role="alert">
                                 {store.msg}
                             </div>
 
-                        )}
+                        ) : ""}
 
                         <form onSubmit={handleSubmit}>
                             <div className='row'>
@@ -104,14 +101,14 @@ const UsersProfile = () => {
 
                                         </div>
                                         <div className="form-floating mb-3 w-50">
-                                            <input type="text" name='username' value={formData.username} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Apellido" />
-                                            <label htmlFor="floatingInput">Apellidos</label>
+                                            <input type="text" name='username' value={formData.username} onChange={handleChange} className="mx-2 form-control" id="floatingInput" disabled={!edit} placeholder="Apellido" />
+                                            <label className="mx-2" htmlFor="floatingInput">Apellidos</label>
                                         </div>
 
                                     </div>
                                     <div className="d-flex align-items-center" >
                                         <FontAwesomeIcon icon={faEnvelope} style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }} />
-                                        <div className="form-floating mb-3 w-50">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="email" name='email' value={formData.email} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Email" />
                                             <label htmlFor="floatingInput">Email</label>
                                         </div>
@@ -121,7 +118,7 @@ const UsersProfile = () => {
 
 
                                         <FontAwesomeIcon icon={faCoins} style={{ width: '25px', height: '25px', color: "#6793AE", marginRight: '10px' }} />
-                                        <div className="form-floating mb-3">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="number" name='precio_hora' value={formData?.precio_hora} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Precio hora" />
                                             <label htmlFor="floatingInput">Precio/Hora</label>
                                         </div>
@@ -136,7 +133,7 @@ const UsersProfile = () => {
                                             icon={faPhone}
                                             style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}
                                         />
-                                        <div className="form-floating mb-3">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="tel" name='phone' value={formData?.phone} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="Teléfono" />
                                             <label htmlFor="floatingInput">Teléfono</label>
                                         </div>
@@ -147,7 +144,7 @@ const UsersProfile = () => {
                                     <div className="d-flex align-items-center">
                                         <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
 
-                                        <div className="form-floating mb-3">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="text" name='country' value={formData?.country} onChange={handleChange} className="form-control" id="floatingInput" disabled={!edit} placeholder="País" />
                                             <label htmlFor="floatingInput">Pais</label>
                                         </div>
@@ -159,7 +156,7 @@ const UsersProfile = () => {
 
                                         <i className="fa-solid fa-gears" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
 
-                                        <div className="form-floating mb-3 w-75">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="text" name='tecnologias' value={formData?.tecnologias} onChange={handleChange} className="form-control w-100" id="floatingInput" disabled={!edit} placeholder="Tecnologías" />
                                             <label htmlFor="floatingInput">Tecnologias</label>
                                         </div>
@@ -170,7 +167,7 @@ const UsersProfile = () => {
 
                                         <i className="fa-solid fa-comment" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
 
-                                        <textarea class="form-control" name='descripcion' value={formData?.descripcion} onChange={handleChange} placeholder="Descripción" id="floatingTextarea2" disabled={!edit} style={{ height: "100px" }}></textarea>
+                                        <textarea className="form-control" name='descripcion' value={formData?.descripcion} onChange={handleChange} placeholder="Descripción" id="floatingTextarea2" disabled={!edit} style={{ height: "100px" }}></textarea>
 
 
                                     </div>
@@ -179,14 +176,22 @@ const UsersProfile = () => {
                                         <i className="fa-solid fa-flag" style={{ color: '#6793AE', width: '25px', height: '25px', marginRight: '10px' }}></i>
 
 
-                                        <div className="form-floating mb-3 w-75">
+                                        <div className="form-floating mb-3 w-100">
                                             <input type="text" name='experiencia' value={formData?.experiencia} onChange={handleChange} className="form-control " id="floatingInput" disabled={!edit} placeholder="Experiencia" />
                                             <label htmlFor="floatingInput">Experiencia</label>
                                         </div>
 
 
                                     </div>
+                                    <div className='row mx-auto ms-4'>
+                                        <div className='col-md-6'>
+                                            <button onClick={() => setEdit(!edit)} type="button" className=" w-100 btn btn-primary">Editar</button>
+                                        </div>
+                                        <div className='col-md-6'>
+                                            <button type="submit" className="w-100 btn btn-success ">Guardar</button>
+                                        </div>
 
+                                    </div>
                                 </div>
 
                             </div>
@@ -194,9 +199,10 @@ const UsersProfile = () => {
 
 
 
-                            <div className='row'>
-                                <button onClick={() => setEdit(!edit)} type="button" className="w-25 btn btn-primary mx-auto">{edit ? "Guardar" : "Editar"}</button>
-                            </div>
+
+
+
+
 
                         </form>
 
@@ -204,8 +210,8 @@ const UsersProfile = () => {
 
                 </div>
 
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
@@ -218,13 +224,13 @@ const styles = {
         boxSizing: 'border-box',
     },
     row: {
-        height: '700px',
+        height: 'auto',
         display: 'flex',
     },
     flexContainer: {
         display: 'flex',
         flexDirection: 'column',
-        height: '700px',
+        height: 'auto',
     },
     profileColumn: {
         display: 'flex',
