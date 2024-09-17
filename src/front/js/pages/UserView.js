@@ -4,12 +4,10 @@ import UserProjects from '../component/userview/UserProjects';
 import UserFavs from '../component/userview/UserFavs';
 import { EditFavoritesUserAccordion } from '../component/userview/FavsUserAccordion';
 import EditProjectsAccordion from '../component/userview/projecstUserAccordion';
-import '../../styles/userview.css';
-
 export const Userview = () => {
     return (
 
-        <div className="container contenedor">
+        <div className="container">
             <div className='body'>
                 <UsersProfile />
 

@@ -3,7 +3,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { ModalJobApply } from "../component/ModalJobApply.jsx";
-import { StarsRating } from "../component/StarsRating.jsx";
 import "../../styles/SingleOffer.css";
 
 export const SingleOffer = () => {
@@ -115,7 +114,7 @@ export const SingleOffer = () => {
                                 {offer.nombre_empresa} - {offer.localidad}
                             </p>
                             <p className="date-posted">Publicado el {formatDate(offer.fecha_publicacion)}</p>
-                            <StarsRating className="offer-rating" />
+                            
                             {isProgramador && (
                                 <button className="btn btn-apply mt-2" onClick={handleApplyClick}>
                                     {isSubscribed ? "Desinscribirse" : "Inscribirse"}

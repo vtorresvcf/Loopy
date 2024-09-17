@@ -40,21 +40,7 @@ export const PostuladosList = () => {
         }
     }, [oferta_id, store.token]);
 
-    const handleStatusChange = async (user_id, estado) => {
-        const result = await actions.changePostuladoStatus(oferta_id, user_id, estado);
-        if (result.type === "success") {
-            alert(`Estado actualizado a ${estado}`);
 
-            setPostulados(prevPostulados =>
-                Array.isArray(prevPostulados) ? 
-                prevPostulados.map(postulado =>
-                    postulado.user_id === user_id ? { ...postulado, estado } : postulado
-                ) : prevPostulados
-            );
-        } else {
-            setError(result.msg);
-        }
-    };
 
     return (
         <div className="container mt-4">
@@ -76,50 +62,32 @@ export const PostuladosList = () => {
             )}
             <div className="row">
                 {Array.isArray(postulados) && postulados.map((postulado) => (
-                    <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex" key={postulado.user_id}>
+                    <div className="col-lg-4 col-md-6 col-sm-12 my-3 d-flex mx-auto" key={postulado.user_id}>
                         <div className="card card-box h-100 shadow-sm">
-                            <img 
-                            className="foto-perfil"
-                            src="https://static.vecteezy.com/system/resources/previews/002/205/989/non_2x/user-profile-icon-free-vector.jpg" 
-                            alt=""
+                            <img
+                                className="foto-perfil mx-auto"
+                                src="https://static.vecteezy.com/system/resources/previews/002/205/989/non_2x/user-profile-icon-free-vector.jpg"
+                                alt=""
                             />
                             <div className="card-body card-body-body">
-                                <h5 className="card-title fw-bold fs-4">{postulado.username}</h5>
                                 <p className="postulados-card-text">
                                     <strong>Email:</strong> {postulado.email}
                                 </p>
                                 <p className="postulados-card-text">
-                                    <strong>Estado:</strong> {postulado.estado}
+                                    <strong>Descripcion:</strong> {postulado.programador.descripcion}
                                 </p>
                                 <p className="postulados-card-text">
-                                    <strong>Datos del postulado:</strong> {postulado.programador?.id}
+                                    <strong>Experiencia:</strong> {postulado.programador.experiencia}
                                 </p>
-                                <ul className="data-list-postulado d-flex">
-                                    <li className="data-postulado"></li>
-                                    <li className="data-postulado"></li>
-                                    <li className="data-postulado"></li>
-                                </ul>
+                                <p className="postulados-card-text">
+                                    <strong>Precio hora:</strong> {postulado.programador.precio_hora}
+                                </p>
+
                                 <Link to={`/Form_Contact_Postulados/${postulado.user_id}`}>
                                     <button className="boton-contactar">Contactar</button>
                                 </Link>
-                                <div className="d-flex justify-content-between mt-3">
-                                    <button
-                                        className="btn btn-contrata"
-                                        onClick={() => handleStatusChange(postulado.user_id, 'contratado')}
-                                    >
-                                        Aceptar
-                                    </button>
-                                    <button
-                                        className="btn btn-rechazar"
-                                        onClick={() => handleStatusChange(postulado.user_id, 'rechazado')}
-                                    >
-                                        Rechazar
-                                    </button>
-                                </div>
                             </div>
-                            <div className="card-footer">
-                                <small className="text-muted text-center">Más detalles en el perfil</small>
-                            </div>
+
                         </div>
                     </div>
                 ))}

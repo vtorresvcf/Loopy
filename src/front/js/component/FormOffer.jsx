@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import "../../styles/FormOffer.css";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
-import { SectionRight } from "./SectionRight.jsx";
 
 export const FormOffer = () => {
     const { actions } = useContext(Context);
@@ -65,7 +64,7 @@ export const FormOffer = () => {
                 <div className="mt-5">
                     <div className="row">
                         <div className="col-12">
-                            <div className="form-header text-center">
+                            <div className="form-header">
                                 <h2 className="display-4 fw-bold my-3">
                                     ¡Lleva Tu Equipo al Siguiente Nivel!
                                 </h2>
@@ -102,7 +101,7 @@ export const FormOffer = () => {
                                     placeholder="Tecnologi vanguar SL, "
                                     onChange={handleChange}
                                     value={formData.nombre_empresa}
-                                />                                
+                                />
                             </div>
                             <div className="col-4">
                                 <label htmlFor="experiencia_minima" className="form-label text-secondary fw-bold my-3">Experiencia mínima</label>
@@ -248,7 +247,7 @@ export const FormOffer = () => {
                                         className="form-control"
                                         name="requisitos_minimos"
                                         id="requisitos"
-                                        placeholder="impresindible..."
+                                        placeholder="Imprescindible..."
                                         onChange={handleChange}
                                         value={formData.requisitos_minimos}
                                     />
@@ -280,9 +279,7 @@ export const FormOffer = () => {
                     </form>
                 </div>
             </div>
-            <div className="section">
-                <SectionRight />
-            </div>
+          
         </>
     );
 };

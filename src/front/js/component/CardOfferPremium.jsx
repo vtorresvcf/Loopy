@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { ModalJobApply } from "./ModalJobApply.jsx";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { StarsRating } from "./StarsRating.jsx";
 import { FcApproval } from "react-icons/fc";
 
 export const CardOfferPremium = ({ id }) => {
@@ -145,7 +144,7 @@ export const CardOfferPremium = ({ id }) => {
                         >
                             {isFavorite ? <FaHeart /> : <FaRegHeart />}
                         </div>
-                    <StarsRating offerId={id} />
+                    
                     </div>
                     <span
                         className="card-offer-company-premium mt-2"
