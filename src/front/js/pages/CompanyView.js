@@ -7,7 +7,7 @@ export const Companyview = () => {
     return (
 
         <div className="container">
-            <div className='body'>
+            <div className='body wrapper'>
                 <CompanyProfile />
 
 

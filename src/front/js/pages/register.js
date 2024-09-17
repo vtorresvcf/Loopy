@@ -37,7 +37,7 @@ export const Register = () => {
 
 
   return (
-    <div className="container-fluid p-0">
+    <div className="container-fluid p-0 wrapper">
       <div className="d-flex justify-content-center py-4 my-4 centrar">
         <div className="row contenedor-registro border rounded shadow " >
           <div className='col header-formulario'>

@@ -95,8 +95,8 @@ export const SingleOffer = () => {
 
     return (
         <>
-            <div className="container my-4 p-0">
-                <div className="card single-offer-box shadow-sm p-3 shadow-lg">
+            <div className="container my-4 p-0 wrapper">
+                <div className="card single-offer-box shadow-sm p-3 shadow-lg mx-auto">
                     <div className="row">
                         <div className="col-3">
                             <img
@@ -105,7 +105,7 @@ export const SingleOffer = () => {
                                 className="img-fluid rounded-circle"
                             />
                             <div className="text-muted mt-2">
-                                <span className="num-postulados">{numeroInscritos}</span> Inscritos
+                                <span className="num-postulados">{numeroInscritos} Inscritos</span>
                             </div>
                         </div>
                         <div className="col-9">
@@ -114,7 +114,7 @@ export const SingleOffer = () => {
                                 {offer.nombre_empresa} - {offer.localidad}
                             </p>
                             <p className="date-posted">Publicado el {formatDate(offer.fecha_publicacion)}</p>
-                            
+
                             {isProgramador && (
                                 <button className="btn btn-apply mt-2" onClick={handleApplyClick}>
                                     {isSubscribed ? "Desinscribirse" : "Inscribirse"}
@@ -125,17 +125,17 @@ export const SingleOffer = () => {
                     <div className="row mt-3">
                         <div className="col-12">
                             <ul className="offer-details">
-                                <li>{offer.idiomas}</li>
-                                <li>{offer.salario}</li>
-                                <li>{offer.estudios_minimos}</li>
-                                <li>{offer.modalidad}</li>
-                                <li>{offer.tipo_contrato}</li>
-                                <li>{offer.localidad}</li>
+                                <li><strong>Idiomas:</strong> {offer.idiomas}</li>
+                                <li><strong>Salario:</strong> {offer.salario}</li>
+                                <li><strong>Estudios mínimos:</strong> {offer.estudios_minimos}</li>
+                                <li><strong>Modalidad:</strong> {offer.modalidad}</li>
+                                <li><strong>Tipo de contrato:</strong> {offer.tipo_contrato}</li>
+                                <li><strong>Localidad:</strong> {offer.localidad}</li>
                             </ul>
                         </div>
                     </div>
                     <div className="row mt-3">
-                        <div className="col-12">
+                        <div className="col-12 text-center">
                             <hr />
                             <h3>Requisitos Mínimos</h3>
                             <p className="requisitos-minimos">{offer.requisitos_minimos}</p>

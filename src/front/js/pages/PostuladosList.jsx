@@ -43,7 +43,7 @@ export const PostuladosList = () => {
 
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4 wrapper">
             <div className="postulados-box-header text-center">
                 <h2 className="postulados-header text-secondary fw-bold">
                     Es hora de <span className="color-title-postulado">contactar!</span>

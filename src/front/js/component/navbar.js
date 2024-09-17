@@ -97,7 +97,7 @@ export const Navbar = () => {
 
                     <button
                       type="button"
-                      className="btn rounded-pill mx-1 "
+                      className="btn rounded-pill mx-2 "
                       style={{
                         backgroundColor: "white",
                         borderColor: "white",
@@ -110,7 +110,7 @@ export const Navbar = () => {
                     <button
                       onClick={handleLogOutRedirect}
                       type="button"
-                      className="btn rounded-pill "
+                      className="btn rounded-pill mx-2"
                       style={{
                         backgroundColor: "#70879C",
                         borderColor: "white",
@@ -127,7 +127,7 @@ export const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate("/login")}
-                      className="btn rounded-pill"
+                      className="btn rounded-pill mx-2"
                       style={{
                         backgroundColor: "#70879C",
                         borderColor: "#70879C",
@@ -138,7 +138,7 @@ export const Navbar = () => {
                     </button>
                     <button
                       type="button"
-                      className="btn rounded-pill "
+                      className="btn rounded-pill mx-2"
                       style={{
                         backgroundColor: "white",
                         borderColor: "white",

@@ -32,7 +32,7 @@ export const TimeLine = () => {
     };
 
     return (
-        <div className="container-list my-5">
+        <div className="container-list my-5 wrapper">
             <div className="header-search-container d-flex flex-column align-items-center">
                 <div className="header-box text-center">
                     <h2 className="fw-bold text-secondary">Construyendo un Futuro</h2>

@@ -10,7 +10,7 @@ const OfferManager = ({ empleador_id }) => {
 
 
     useEffect(() => {
-        if (store.jobOffers.length > 0) {
+        if (store?.jobOffers.length > 0) {
             const employerOffers = store.jobOffers.filter(offer => offer.empleador_id === store.user?.profile_empleador.id);
             setOffers(employerOffers);
         }
@@ -21,7 +21,7 @@ const OfferManager = ({ empleador_id }) => {
         <div className='container'>
 
             <div className="d-flex flex-wrap justify-content-center">
-                {offers.length > 1 ? (
+                {offers?.length > 1 ? (
                     offers.map((offer, index) => (
                         <OfferCard
                             key={index}
@@ -32,7 +32,7 @@ const OfferManager = ({ empleador_id }) => {
                             modalidad={offer.modalidad}
                             experiencia_minima={offer.experiencia_minima}
                             tipo_contrato={offer.tipo_contrato}
-                            n_postulados={offer.postulados.length}
+                            n_postulados={offer.postulados?.length}
                         />
                     ))
                 ) : "No hay ofertas"}

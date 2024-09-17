@@ -219,25 +219,25 @@ const styles = {
     pageContainer: {
         width: 'calc(100% - 10px)',
         height: 'auto',
-        margin: '5px',
+        margin: '3rem auto 0 auto',
         padding: '0',
         boxSizing: 'border-box',
     },
     row: {
-        height: 'auto',
+        height: '100%',
         display: 'flex',
     },
     flexContainer: {
         display: 'flex',
         flexDirection: 'column',
-        height: 'auto',
+        height: '100%',
     },
     profileColumn: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '10px',
-        marginLeft: '10px',
+        marginTop: '0',
+        marginLeft: '0',
     },
     profileImageContainer: {
         display: 'flex',

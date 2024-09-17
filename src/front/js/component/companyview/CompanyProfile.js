@@ -240,7 +240,7 @@ const styles = {
     pageContainer: {
         width: 'calc(100% - 10px)',
         height: 'auto',
-        margin: '5px',
+        margin: '3rem auto 0 auto',
         padding: '0',
         boxSizing: 'border-box',
     },

@@ -7,8 +7,8 @@ import EditProjectsAccordion from '../component/userview/projecstUserAccordion';
 export const Userview = () => {
     return (
 
-        <div className="container">
-            <div className='body'>
+        <div className="container ">
+            <div className='body wrapper'>
                 <UsersProfile />
 
                 <UserFavs title="Favoritos">

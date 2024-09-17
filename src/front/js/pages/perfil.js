@@ -49,7 +49,7 @@ const perfil = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container wrapper'>
             <div className='row border border-black my-5'>
                 <form onSubmit={handleSubmit}>
                     <div className='col'>
@@ -100,7 +100,7 @@ const perfil = () => {
 
 
                                     </div>
-                                    
+
                                 </>)}
                         {store.empleador && (
                             <>
@@ -144,7 +144,7 @@ const perfil = () => {
                         )}
 
 
-                        {store?.editar &&(
+                        {store?.editar && (
                             <div class="alert alert-success" role="alert">{store.msg}</div>
                         )}
 
@@ -166,11 +166,11 @@ const perfil = () => {
 
                         <div className='row border'>
                             <div className='col'>Favoritos</div>
-                            
+
                         </div>
                     </div>
                     <Link to={"/user"}>
-                    <button>Ir a la pagina del perfil correcto</button>
+                        <button>Ir a la pagina del perfil correcto</button>
                     </Link>
                 </div>
             )}

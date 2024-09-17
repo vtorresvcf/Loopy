@@ -1,17 +1,18 @@
 .container-single-offer {
     display: flex;
-    justify-content: center; /* Centra el contenedor horizontalmente */
+    justify-content: center;
+    /* Centra el contenedor horizontalmente */
     padding: 0;
     margin: 0;
 }
 
 .single-offer-box {
-    width: 100%; 
-    max-width: 700px; 
+    width: 100%;
+    max-width: 350px;
     border-radius: 8px;
     overflow: hidden;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
 

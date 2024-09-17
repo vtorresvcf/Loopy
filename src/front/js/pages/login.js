@@ -29,7 +29,7 @@ export const LoginPage = () => {
     };
 
     return (
-        <div className='centrar'>
+        <div className='centrar wrapper'>
             <section id="content">
                 <form className="login-container" onSubmit={handleLogin}>
                     <h1 className='text-center'>Iniciar Sesión</h1>

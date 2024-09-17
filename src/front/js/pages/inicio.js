@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 export const Inicio = () => {
     const { store } = useContext(Context);
 
-    
+
 
     return (
 
-        <div className="inicio-container container mt-5 text-muted">
+        <div className="inicio-container container mt-5 text-muted wrapper">
             <div className="row align-items-center">
                 <div className="col-lg-6 text-center text-lg-start">
                     <h1 className="display-4 fw-bold">
@@ -37,7 +37,7 @@ export const Inicio = () => {
                             </Link>
                         </div>
                     )}
-                    
+
 
                 </div>
                 <div className="col-lg-6 text-center mt-4 mt-lg-0">

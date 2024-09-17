@@ -70,7 +70,7 @@ const Form_Contact_Postulados = () => {
 
     return (
         <div>
-            <section className='seccion-form text-center'>
+            <section className='seccion-form text-center wrapper'>
                 <h1 >CONTACTAR CON EL POSTULADO</h1>
                 <div className="form-contact-postulados ">
                     {error && (
@@ -105,12 +105,12 @@ const Form_Contact_Postulados = () => {
                         <div className="input-field">
                             <i className="fas fa-user"></i>
                             <label htmlFor="name">Nombre</label>
-                            <input id="name" type="text" name="name" onChange={handleOnChange} value={formData.name}  />
+                            <input id="name" type="text" name="name" onChange={handleOnChange} value={formData.name} />
                         </div>
                         <div className="input-field">
                             <i className="fa-solid fa-user-group"></i>
                             <label htmlFor="email">Email</label>
-                            <input id="email" type="email" name="email" onChange={handleOnChange} value={formData.email}  />
+                            <input id="email" type="email" name="email" onChange={handleOnChange} value={formData.email} />
                         </div>
 
 
