@@ -1,10 +1,7 @@
-body {
-    min-height: 100vh;
-}
-
 .container-list {
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 0 15px; 
 }
 
 .header-search-container {
@@ -17,33 +14,48 @@ body {
 }
 
 .header-box {
-    text-align: center;
+    text-align: center; 
     margin-bottom: 1rem;
 }
 
 .header-box h2 {
     font-size: 3rem;
-    margin: 0;
+    margin: 0; 
 }
 
 .header-box h3 {
     color: rgb(103, 147, 174);
     font-size: 1.8rem;
-    margin: 0;
+    margin: 0; 
 }
 
-.search-bar-timeline {
+.search-bar {
+    width: 100%;
     display: flex;
-    margin-bottom: 2rem;
-    width: 50%;
+    justify-content: center;
+    align-items: center; /* Alineación vertical */
+    margin: 50px auto; /* Ajuste de márgenes */
+    margin-left: 470px;
+    max-width: 900px; /* Para limitar el ancho de la barra */
+    
+}
+
+.search-bar .form-control {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+    padding: 10px; /* Mejor espaciado */
+    border: solid rgb(103, 147, 174);
 }
 
 .btn-search {
     background-color: rgb(103, 147, 174);
     color: black;
-    padding: 5px 11px;
-    height: 100%;
-    width: 100px;
+    padding: 10px 20px;
+    height: auto;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center; /* Asegura que el botón esté alineado verticalmente */
+    justify-content: center; /* Asegura el texto centrado */
 }
 
 .btn-search:hover {
@@ -52,7 +64,7 @@ body {
 }
 
 .list-offers-container {
-    text-align: center;
-    margin: 0 auto;
-    padding: 0 15px;
+    text-align: center; 
+    margin: 0 auto; 
+    padding: 0 15px; 
 }

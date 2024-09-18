@@ -501,98 +501,98 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavorite: async (programador_id, empleador_id, oferta_id) => {
-				try {
-					const response = await fetch(`${process.env.BACKEND_URL}/api/favoritos`, {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify({
-							programador_id: programador_id,
-							empleador_id: empleador_id,
-							oferta_id: oferta_id,
-						}),
-					});
+                try {
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/favoritos`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            programador_id: programador_id,
+                            empleador_id: empleador_id,
+                            oferta_id: oferta_id,
+                        }),
+                    });
 
-					if (!response.ok) {
-						throw new Error('Error al agregar favorito');
-					}
+                    if (!response.ok) {
+                        throw new Error('Error al agregar favorito');
+                    }
 
-					getActions().getFavorites()
+                    getActions().getFavorites()
 
-					return true;
+                    return true;
 
-				} catch (error) {
-					console.error('Error:', error);
-					throw error;
-				}
-			},
+                } catch (error) {
+                    console.error('Error:', error);
+                    throw error;
+                }
+            },
 
-			getFavorites: async (id = getStore().user.id) => {
+            getFavorites: async (id = getStore().user.id) => {
 
+                if (!id) {
+                    console.error('No se pudo obtener el ID del usuario');
+                    return;
+                }
 
-				if (!id) {
-					console.error('No se pudo obtener el ID del usuario');
-					return;
-				}
+                try {
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/user/${id}/favoritos`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
 
-				try {
-					const response = await fetch(`${process.env.BACKEND_URL}/api/user/${id}/favoritos`, {
-						method: 'GET',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-					});
+                    if (response.ok) {
+                        const { favoritos } = await response.json();
+                        setStore({ favorites: favoritos }); // Asegúrate de que el 'data' ya es la lista de favoritos
+                    } else {
+                        console.error('Error al obtener los favoritos');
+                    }
+                } catch (error) {
+                    console.error('Error en la solicitud de favoritos:', error);
+                }
+            },
 
-					if (response.ok) {
-						const { favoritos } = await response.json();
-						setStore({ favorites: favoritos }); // Asegúrate de que el 'data' ya es la lista de favoritos
-					} else {
-						console.error('Error al obtener los favoritos');
-					}
-				} catch (error) {
-					console.error('Error en la solicitud de favoritos:', error);
-				}
-			},
+            removeFavorite: async (programador_id, empleador_id, oferta_id) => {
+                try {
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/favoritos`, {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${localStorage.getItem("token")}` // Si estás utilizando autenticación con tokens
+                        },
+                        body: JSON.stringify({
+                            programador_id: programador_id || null,
+                            empleador_id: empleador_id || null,
+                            oferta_id: oferta_id
+                        })
+                    });
 
-			removeFavorite: async (programador_id, empleador_id, oferta_id) => {
-				try {
-					const response = await fetch(`${process.env.BACKEND_URL}/api/favoritos`, {
-						method: "DELETE",
-						headers: {
-							"Content-Type": "application/json",
-							Authorization: `Bearer ${localStorage.getItem("token")}` // Si estás utilizando autenticación con tokens
-						},
-						body: JSON.stringify({
-							programador_id: programador_id || null,
-							empleador_id: empleador_id || null,
-							oferta_id: oferta_id
-						})
-					});
+                    if (!response.ok) {
+                        throw new Error("Error al eliminar favorito.");
+                    }
 
-					if (!response.ok) {
-						throw new Error("Error al eliminar favorito.");
-					}
+                    const data = await response.json();
 
-					const data = await response.json();
+                    if (data.success) {
 
-					if (data.success) {
+                        setStore({
+                            favorites: getStore().favorites.filter(
+                                (fav) => fav.id !== oferta_id || fav.programador_id !== programador_id || fav.empleador_id !== empleador_id
+                            )
+                        });
+                        getActions().getFavorites()
+                        return true;
+                    } else {
+                        return { success: false, msg: data.msg || "Error desconocido." };
+                    }
+                } catch (error) {
+                    console.error("Error en removeFavorite:", error);
+                    return { success: false, msg: error.message };
+                }
+            },
 
-						setStore({
-							favorites: getStore().favorites.filter(
-								(fav) => fav.id !== oferta_id || fav.programador_id !== programador_id || fav.empleador_id !== empleador_id
-							)
-						});
-						getActions().getFavorites()
-						return true;
-					} else {
-						return { success: false, msg: data.msg || "Error desconocido." };
-					}
-				} catch (error) {
-					console.error("Error en removeFavorite:", error);
-					return { success: false, msg: error.message };
-				}
-			},
 			getUser: async (id_programador) => {
 
 				try {

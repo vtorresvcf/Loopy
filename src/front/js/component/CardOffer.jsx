@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { ModalJobApply } from "./ModalJobApply.jsx";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { MdWork, MdPaid, MdOutlineTrendingUp } from "react-icons/md"; // Importando íconos
 
 export const CardOffer = ({ id }) => {
     const navigate = useNavigate();
@@ -13,12 +14,12 @@ export const CardOffer = ({ id }) => {
     const [modalType, setModalType] = useState("");
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [numeroInscritos, setNumeroInscritos] = useState(0);
+    const [isFavorite, setIsFavorite] = useState(false);
 
     const offer = store.jobOffers.find((offer) => offer.id === id);
     if (!offer) return <div>Oferta no encontrada</div>;
 
-    const isFavorite = (id) => store.favorites?.filter((fav) => fav.id == id)[0]
-
+    const checkIfFavorite = () => store.favorites?.some((fav) => fav.id === id);
 
     useEffect(() => {
         if (store.user && store.user.profile_programador) {
@@ -32,61 +33,10 @@ export const CardOffer = ({ id }) => {
             }
         });
 
+        setIsFavorite(checkIfFavorite());
     }, [store.user, id, actions, store.favorites]);
 
-    const handleViewDetails = () => {
-        navigate(`/singleoffer/${id}`);
-    };
-
-    const handleViewCompany = () => {
-        navigate(`/Companyview/${id}`);
-    };
-
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const options = { day: 'numeric', month: 'long' };
-        return date.toLocaleDateString('es-ES', options);
-    };
-
-    const handleApplyClick = async () => {
-        if (!store.user || !store.user.profile_programador) {
-            setModalMessage("Solo los programadores pueden inscribirse en esta oferta.");
-            setModalType("warning");
-            setIsModalOpen(true);
-            return;
-        }
-
-        try {
-            let result;
-            if (isSubscribed) {
-                result = await actions.unapplyFromJobOffer(id);
-                if (result?.msg) {
-                    console.log('este el result msg:', result.msg )
-                    setModalMessage(result.msg);
-                    setModalType(result.type === "success" ? "success" : "error");
-                    setIsSubscribed(false);
-                    setNumeroInscritos((prev) => prev - 1);
-                } else {
-                    throw new Error("Error al desinscribirse, intente nuevamente.");
-                }
-            } else {
-                result = await actions.applyToJobOffer(id);
-                if (result?.msg) {
-                    setModalMessage(result.msg);
-                    setModalType(result.type === "success" ? "success" : "error");
-                    setIsSubscribed(true);
-                    setNumeroInscritos((prev) => prev + 1);
-                } else {
-                    throw new Error("Error al inscribirse, intente nuevamente.");
-                }
-            }
-        } catch (error) {
-            setModalMessage(error.message);
-            setModalType("error");
-        } finally {
-            setIsModalOpen(true);
-        }
-    };
+    const handleViewDetails = () => navigate(`/singleoffer/${id}`);
 
     const handleFavoriteClick = async () => {
         if (!store.user) {
@@ -95,24 +45,25 @@ export const CardOffer = ({ id }) => {
             setIsModalOpen(true);
             return;
         }
+
         const programador_id = store.user.profile_programador?.id || null;
         const empleador_id = store.user.profile_empleador?.id || null;
         const oferta_id = id;
 
         try {
-            if (isFavorite(id)) {
+            if (isFavorite) {
                 const result = await actions.removeFavorite(programador_id, empleador_id, oferta_id);
                 if (result) {
-                    // setIsFavorite(false);
+                    setIsFavorite(false);
                 } else {
-                    throw new Error("No se pudo eliminar de favoritos. Intenta nuevamente.");
+                    throw new Error("No se pudo eliminar de favoritos.");
                 }
             } else {
                 const result = await actions.addFavorite(programador_id, empleador_id, oferta_id);
                 if (result) {
-                    // setIsFavorite(true);
+                    setIsFavorite(true);
                 } else {
-                    throw new Error("No se pudo agregar a favoritos. Intenta nuevamente.");
+                    throw new Error("No se pudo agregar a favoritos.");
                 }
             }
         } catch (error) {
@@ -121,91 +72,51 @@ export const CardOffer = ({ id }) => {
             setIsModalOpen(true);
         }
     };
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return date.toLocaleDateString('es-ES', options);
     };
 
     return (
         <>
-            <div className="card-offer mt-2">
-                <div className="card-offer-logo-container col-12 col-md-4 col-lg-3">
+            <div className="card-offer mt-3 p-3 d-flex">
+                <div className="card-offer-logo-container">
                     <img
-                        className="card-offer-logo img-fluid"
-                        src="https://img.freepik.com/vector-premium/concepto-pequena-empresa-fachada-cafeteria-tiendas-ventas_654623-1161.jpg"
+                        className="card-offer-logo"
+                        src="https://static.wixstatic.com/media/99e904_e49184c4e6fe4e14bb9ea13b5e9d009e~mv2.png/v1/fill/w_640,h_640,al_c,lg_1,q_90,enc_auto/99e904_e49184c4e6fe4e14bb9ea13b5e9d009e~mv2.png"
                         alt="Company Logo"
                     />
-                    <span className="num-postulados m-2">
-                        {numeroInscritos} Se han inscrito
-                    </span>
                 </div>
-                <div className="card-offer-content ms-3 col-12 col-md-8 col-lg-9">
-                    <div className="title-heart d-flex align-items-center justify-content-between mb-2">
-                        <h2 className="card-offer-title">
-                            {offer.name}
-                        </h2>
-                        <div
-                            onClick={handleFavoriteClick}
-                            className="heart-icon"
-                            style={{ cursor: "pointer" }}
-                        >
-                            {isFavorite ? <FaHeart /> : <FaRegHeart />}
+                <div className="card-offer-content ms-3">
+                    <div className="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h2 className="card-offer-title mb-1">{offer.name}</h2>
+                            <span className="card-offer-company" onClick={() => navigate(`/Companyview/${id}`)}>
+                                {offer.nombre_empresa} - {offer.localidad}
+                            </span>
+                        </div>
+                        <div className="ms-auto">
+                            <div onClick={handleFavoriteClick} className="heart-icon">
+                                {isFavorite ? <FaHeart /> : <FaRegHeart />}
+                            </div>
                         </div>
                     </div>
-                    <span
-                        className="card-offer-company mt-2"
-                        onClick={handleViewCompany}
-                    >
-                        {offer.nombre_empresa} - {offer.localidad}
-                    </span>
-                    <div className="card-offer-description mt-2">
-                        <p className="text-description">{offer.descripcion}</p>
-                    </div>
-                    <div className="data-footer d-flex mt-1">
-                        <ul className="card-offer-details list-unstyled d-flex">
-                            <li className="list-footer-details me-3">
-                                Publicada el {formatDate(offer.fecha_publicacion)}
-                            </li>
-                            <li className="list-footer-details me-3">
-                                {offer.modalidad}
-                            </li>
-                            <li className="list-footer-details me-3">
-                                {offer.salario}
-                            </li>
-                            <li className="list-footer-details">
-                                {offer.experiencia_minima}
-                            </li>
-                        </ul>
-                        <div className="card-offer-actions mt-2">
-                            <button
-                                onClick={handleViewDetails}
-                                className="btn btn-details btn-sm me-3"
-                            >
-                                Ver detalles
-                            </button>
-                            {!store.user ||
-                                (store.user && store.user.profile_programador && (
-                                    <button
-                                        className={`btn ${
-                                            isSubscribed
-                                                ? "btn-desinscribirse"
-                                                : "btn-inscribirse"
-                                        } btn-sm`}
-                                        onClick={handleApplyClick}
-                                    >
-                                        {isSubscribed ? "Desinscribirse" : "Inscribirse"}
-                                    </button>
-                                ))}
-                        </div>
+                    <ul className="card-offer-details list-unstyled mt-3">
+                        <li className="detail-item"><MdWork /> Modalidad: {offer.modalidad}</li>
+                        <li className="detail-item"><MdPaid /> Salario: {offer.salario}</li>
+                        <li className="detail-item"><MdOutlineTrendingUp /> Experiencia: {offer.experiencia_minima}</li>
+                    </ul>
+                    <div className="d-flex justify-content-between align-items-end mt-3">
+                        <span className="text-muted small">Publicado: {formatDate(offer.fecha_publicacion)}</span>
+                        <button onClick={handleViewDetails} className="btn btn-primary btn-sm">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
-            {isModalOpen && (
-                <ModalJobApply
-                    message={modalMessage}
-                    type={modalType}
-                    onClose={handleCloseModal}
-                />
-            )}
+            {isModalOpen && <ModalJobApply message={modalMessage} type={modalType} onClose={() => setIsModalOpen(false)} />}
         </>
     );
-}
+};
