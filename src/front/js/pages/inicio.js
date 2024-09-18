@@ -11,9 +11,9 @@ export const Inicio = () => {
 
     return (
 
-        <div className="inicio-container container mt-5 text-muted wrapper">
-            <div className="row align-items-center">
-                <div className="col-lg-6 text-center text-lg-start">
+        <div className="inicio-container mx-4 mt-5 text-muted wrapper">
+            <div className="row align-items-center mx-auto">
+                <div className="col-lg-6 text-center text-lg-start ">
                     <h1 className="display-4 fw-bold">
                         Bienvenido a <span className="titulo" style={{ color: '#6793AE', padding: '0 10px', borderRadius: '5px' }}>Loopy: <span className="small">Freelance Code Connect</span></span>
                     </h1>
@@ -51,7 +51,7 @@ export const Inicio = () => {
             </div>
 
             {/* Features Section */}
-            <div className="row mt-5 text-center text-lg-start">
+            <div className="row mt-5 text-center text-lg-start mx-auto">
                 <div className="col-md-6 mb-4" style={{ borderRadius: "10px", padding: "40px 30px", border: "2px solid #6793AE", marginBottom: "30px", marginRight: "25px", marginLeft: "-15px" }}>
                     <div className="feature-box">
                         <h3 className="text-secondary">Para Programadores</h3>

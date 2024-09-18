@@ -568,6 +568,7 @@ def add_favorito():
 
     return jsonify({"success": True, "data": new_favorite.serialize()}), 201
 
+
 @api.route('/user/<int:user_id>/favoritos', methods=['GET'])
 def get_user_favorites(user_id):
     user = User.query.get(user_id)
@@ -591,6 +592,7 @@ def get_user_favorites(user_id):
     if user.profile_empleador:
         favoritos.extend(user.profile_empleador.favoritos)  
     return jsonify({"success": True, "favoritos": [result.serialize() for result in results]}), 200
+
 
 @api.route('/favoritos', methods=['DELETE'])
 def remove_favorite():
