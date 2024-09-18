@@ -81,7 +81,7 @@ export const CardOffer = ({ id }) => {
 
     return (
         <>
-            <div className="card-offer mt-3 p-3 d-flex">
+            <div className="card-offer mt-3 p-3 d-flex mx-auto wrapper">
                 <div className="card-offer-logo-container">
                     <img
                         className="card-offer-logo"

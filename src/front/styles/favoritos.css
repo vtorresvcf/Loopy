@@ -1,8 +1,12 @@
 .search-bar {
-    width: 100%;      
+    width: 100%;
     display: flex;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     justify-content: center;
+}
+
+.favorites-body {
+    min-height: 70vh;
 }
 
 .search-bar .form-control {

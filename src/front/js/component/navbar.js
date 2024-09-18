@@ -34,14 +34,22 @@ export const Navbar = () => {
                   <>
                     <Link
                       to={"/timeline"}
-                      className="nav-link active "
+                      className="nav-link active mx-3"
                       style={{ color: "white" }}
                     >
                       OFERTAS
                     </Link>
                     <Link
+                      to="/favoritosPage"
+                      className="nav-link active mx-3"
+                      style={{ color: "white" }}
+                    >
+                      FAVORITOS
+
+                    </Link>
+                    <Link
                       to={"/Userview"}
-                      className="nav-link active "
+                      className="nav-link active mx-3 "
                       style={{ color: "white" }}
 
                     >
@@ -71,18 +79,11 @@ export const Navbar = () => {
 
                 {store.user ? (
                   <>
-                    <Link
-                      to="/favoritosPage"
-                      className="nav-link active "
-                      style={{ color: "white" }}
-                    >
-                      FAVORITOS
 
-                    </Link>
                     {store.user.profile_empleador && (
                       <button
                         type="button"
-                        className="btn rounded-pill pe-none"
+                        className="btn rounded-pill pe-none mx-2"
                         style={{
                           backgroundColor: "#70879C",
                           borderColor: "white",
