@@ -30,3 +30,13 @@
     background-color: rgb(135, 193, 229);
     color: aliceblue;
 }
+
+.favorites-title {
+    color:rgb(103, 147, 174);
+    text-align: center;
+    font-weight: bold;
+    margin-top:40px;
+    margin-bottom: 40px;
+    
+    
+}
