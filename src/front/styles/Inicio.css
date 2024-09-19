@@ -1,0 +1,132 @@
+/* Estructura de la página */
+.inicio-container {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Sección Hero */
+.hero-section {
+    background-color: #6793AE;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #6793AE;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #6793AE;
+}
+
+/* Sección de Características */
+.features-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    color: #6793AE;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    color: #6793AE;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Sección de Testimonios */
+.testimonials-section {
+    background-color: #f0f0f0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.testimonial {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.testimonial span {
+    font-size: 1em;
+    color: #999;
+}

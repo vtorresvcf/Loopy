@@ -52,7 +52,7 @@ const PreguntasFrecuentes = () => {
 
         <div className="row banner-preguntas colorFondoGeneral text-center align-items-center">
           <div className="col-7 borde">
-            <h1>Registrate en floppy</h1>
+            <h1>Registrate en Loopy</h1>
             <p>Encuentra lo que estás buscando</p>
             <Link to={"/register"}>
               <button className="btn btn-light colorGeneral fs-5">
@@ -75,7 +75,7 @@ const PreguntasFrecuentes = () => {
         </div>
         <div className="row justify-content-center my-5 align-items-center">
           <div className="col-4 text-center rounded text-style colorFondoGeneral text-white py-3 mx-5 ">
-            <h3>El mejor servicio en Floppy</h3>
+            <h3>El mejor servicio en Loopy</h3>
           </div>
           <div className="col-4 icons-style colorGeneral mx-5">
             <RiCodeBoxLine />

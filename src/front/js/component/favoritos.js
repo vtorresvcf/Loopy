@@ -43,7 +43,7 @@ export const Favoritos = () => {
         <div className="favorites-body">
             <div className="favorites-container">
                 <h1 className="favorites-title">Tus Favoritos</h1>
-                <div className="search-bar d-flex">
+                <div className="search-bar1 d-flex">
                     <input
                         type="text"
                         className="form-control"
@@ -52,7 +52,7 @@ export const Favoritos = () => {
                         onChange={handleSearchChange}
                         onKeyDown={handleKeyDown}
                     />
-                    <button className="btn btn-search ms-3" onClick={handleSearchClick}>
+                    <button className="btn btn-search1 ms-3" onClick={handleSearchClick}>
                         Buscar
                     </button>
                 </div>

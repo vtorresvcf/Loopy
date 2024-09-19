@@ -37,10 +37,7 @@ export const TimeLine = () => {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-12 text-center fw-bold text-muted header-box">
-                        <h2 className="fw-bold">Construyendo un Futuro</h2>
-                        <h3 className="fw-bold">
-                            Encuentra aquí las mejores oportunidades para tu carrera
-                        </h3>
+                        <h3 className="fw-bold titulo1">ENCUENTRA AQUÍ LAS MEJORES OPORTUNIDADES PARA TU CARRERA</h3>
                     </div>
                 </div>
             </div>
