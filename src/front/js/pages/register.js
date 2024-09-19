@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "../../styles/register.css";
 import { useForm } from "react-hook-form";
 import { Context } from "../store/appContext";
@@ -50,7 +50,7 @@ export const Register = () => {
               className="mx-2 my-3 "
             >
               <div className=" w-100 text-center ">
-                <h1 className="fw-bold fs-1" >Crear Cuenta</h1>
+                <h1 className="fw-bold fs-1" style={{ color: '#6793AE' }} >Crear Cuenta</h1>
               </div>
 
               {store?.msg && <AlertSuccess />}

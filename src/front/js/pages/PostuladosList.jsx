@@ -6,7 +6,7 @@ import '../../styles/PostuladosList.css';
 import { Link } from "react-router-dom";
 
 export const PostuladosList = () => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
     const { oferta_id } = useParams();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

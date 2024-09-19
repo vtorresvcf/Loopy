@@ -25,7 +25,7 @@ export const Navbar = () => {
               <div className="navbar-nav me-auto mx-auto">
                 <Link
                   to={"/"}
-                  className="nav-link active "
+                  className="nav-link active mx-2 "
                   style={{ color: "white" }}
                 >
                   INICIO
@@ -34,14 +34,14 @@ export const Navbar = () => {
                   <>
                     <Link
                       to={"/timeline"}
-                      className="nav-link active mx-3"
+                      className="nav-link active mx-2"
                       style={{ color: "white" }}
                     >
                       OFERTAS
                     </Link>
                     <Link
                       to="/favoritosPage"
-                      className="nav-link active mx-3"
+                      className="nav-link active mx-2"
                       style={{ color: "white" }}
                     >
                       FAVORITOS
@@ -49,7 +49,7 @@ export const Navbar = () => {
                     </Link>
                     <Link
                       to={"/Userview"}
-                      className="nav-link active mx-3 "
+                      className="nav-link active mx-2 "
                       style={{ color: "white" }}
 
                     >
