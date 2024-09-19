@@ -7,7 +7,7 @@ export const FavoritosPage = () => {
     const { store } = useContext(Context);
 
     return (
-        <div className="favoritos-page-container wrapper">
+        <div>
 
             <Favoritos />
 

@@ -50,7 +50,7 @@ export const Register = () => {
               className="mx-2 my-3 "
             >
               <div className=" w-100 text-center ">
-                <h1 className="fw-bold fs-1" style={{ color: '#6793AE' }} >Crear Cuenta</h1>
+              <h1 className="fw-bold fs-1 crear-cuenta">Crear Cuenta</h1>
               </div>
 
               {store?.msg && <AlertSuccess />}

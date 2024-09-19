@@ -33,17 +33,18 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; /* Alineación vertical */
-    margin: 50px auto; /* Ajuste de márgenes */
-    margin-left: 470px;
-    max-width: 900px; /* Para limitar el ancho de la barra */
+    align-items: center; 
+    margin: 50px auto; 
+    margin: 0 auto;
+    max-width: 1100px; 
+    margin-top: -30px;
     
 }
 
 .search-bar .form-control {
     flex-grow: 1;
     border-radius: 4px 0 0 4px;
-    padding: 10px; /* Mejor espaciado */
+    padding: 10px; 
     border: solid rgb(103, 147, 174);
 }
 
@@ -54,8 +55,8 @@
     height: auto;
     border-radius: 0 4px 4px 0;
     display: flex;
-    align-items: center; /* Asegura que el botón esté alineado verticalmente */
-    justify-content: center; /* Asegura el texto centrado */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .btn-search:hover {
@@ -67,4 +68,8 @@
     text-align: center; 
     margin: 0 auto; 
     padding: 0 15px; 
+}
+
+.fw-bold titulo1 {
+    color: rgb(103, 147, 174);
 }

@@ -1,29 +1,32 @@
-.search-bar {
-    width: 100%;
-    display: flex;
-    margin-bottom: 20px;
+.search-bar1 {
+    width: 50%;      
+    margin-bottom: 20px; 
     justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .favorites-body {
     min-height: 70vh;
 }
 
-.search-bar .form-control {
+.search-bar1 .form-control {
     flex-grow: 1;
     border-radius: 4px 0 0 4px;
+    
 }
 
-.btn-search {
+.btn-search1 {
     background-color: rgb(103, 147, 174);
-    color: black;
+    color: rgb(255, 255, 255);
     padding: 5px 11px;
     height: 100%;
     width: 100px;
     border-radius: 0 4px 4px 0;
+    
 }
 
-.btn-search:hover {
+.btn-search1:hover {
     background-color: rgb(135, 193, 229);
     color: aliceblue;
 }
