@@ -30,8 +30,8 @@ export const Inicio = () => {
                         style={{ border: "2px solid #6793AE" }}
                     />
                 </div>
-            </div>
-
+            
+            </header>
             {/* Features Section */}
             <div className="row mt-5 text-center text-lg-start">
                 <div className="col-md-6 mb-4" style={{ borderRadius: "10px", padding: "40px 30px", border: "2px solid #6793AE", marginBottom: "30px", marginRight: "25px", marginLeft: "-15px" }}>
