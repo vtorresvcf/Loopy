@@ -25,7 +25,7 @@ const PreguntasFrecuentes = () => {
 
   return (
     <>
-      <div className="contenedor wrapper">
+      <div className="wrapper">
         <div>
           <div className="header-preguntas colorFondoGeneral">
             <h1 className="text-center py-3 fw-bolder fuente animate__animated animate__bounceInLeft ">

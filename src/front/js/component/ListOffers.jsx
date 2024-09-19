@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CardOffer } from "./CardOffer.jsx";
 import { Context } from "../store/appContext.js";
-import "../../styles/CardListOffer.css";
 
 export const ListOffers = ({ searchTerm }) => {
     const { store, actions } = useContext(Context);
@@ -11,7 +10,7 @@ export const ListOffers = ({ searchTerm }) => {
         if (!loaded) {
             actions.loadAllJobOffers().then(() => setLoaded(true));
         }
-    }, [loaded, actions]); 
+    }, [loaded, actions]);
 
     const filterOffers = (offers, searchTerm) => {
         if (!searchTerm) return offers;
@@ -29,7 +28,7 @@ export const ListOffers = ({ searchTerm }) => {
     const filteredOffers = filterOffers(store.jobOffers || [], searchTerm);
 
     return (
-        <div className="list-offer-container mt-3">
+        <div className="list-offer-container mt-3 mx-auto">
             <div className="row d-flex flex-column g-2">
                 {filteredOffers.length > 0 ? (
                     filteredOffers.map((offer) => (

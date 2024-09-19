@@ -5,8 +5,8 @@ import { FilterListOffer } from "../component/FilterListOffer.jsx";
 
 export const TimeLine = () => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [filterTerm, setFilterTerm] = useState(""); 
-    const [filters, setFilters] = useState({ 
+    const [filterTerm, setFilterTerm] = useState("");
+    const [filters, setFilters] = useState({
         plazo: "",
         salario: [0, 100000],
         searchText: "",
@@ -41,7 +41,7 @@ export const TimeLine = () => {
                     </div>
                 </div>
             </div>
-            <div className="search-bar d-flex">
+            <div className="search-bar d-flex mx-auto">
                 <input
                     type="text"
                     className="form-control"
