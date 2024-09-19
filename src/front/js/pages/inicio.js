@@ -22,26 +22,26 @@ export const Inicio = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="col-lg-6 text-center mt-4 mt-lg-0">
-                    <img
-                        src="https://www.shutterstock.com/image-vector/backend-development-coding-software-engineering-600nw-2378388687.jpg"
-                        alt="Desarrollo de Software"
-                        className="img-fluid rounded shadow-lg"
-                        style={{ border: "2px solid #6793AE" }}
-                    />
-                </div>
-            
             </header>
-            {/* Features Section */}
-            <div className="row mt-5 text-center text-lg-start">
-                <div className="col-md-6 mb-4" style={{ borderRadius: "10px", padding: "40px 30px", border: "2px solid #6793AE", marginBottom: "30px", marginRight: "25px", marginLeft: "-15px" }}>
-                    <div className="feature-box">
-                        <h3 className="text-secondary">Para Programadores</h3>
-                        <ul className="list-unstyled mt-3 text-secondary">
-                            <li className="mb-2"><strong>Proyectos a tu medida:</strong> Encuentra proyectos que se alineen con tu experiencia y preferencias.</li>
-                            <li className="mb-2"><strong>Flexibilidad total:</strong> Trabaja desde cualquier lugar, a tu ritmo y con las condiciones que elijas.</li>
-                            <li className="mb-2"><strong>Pago seguro y garantizado:</strong> Recibe pagos de manera segura por tu trabajo, sin complicaciones.</li>
-                        </ul>
+
+            <section className="features-section">
+                <h2 className="section-title">¿Cómo te ayudamos?</h2>
+                <div className="features-grid">
+                    <div className="feature-card">
+                        <h3>💻 Proyectos a Medida</h3>
+                        <p>Encuentra proyectos alineados con tu experiencia y preferencias. Trabaja desde donde quieras.</p>
+                    </div>
+                    <div className="feature-card">
+                        <h3>💼 Empresas</h3>
+                        <p>Accede a miles de programadores especializados. Simplifica el proceso de contratación y contrata con confianza.</p>
+                    </div>
+                    <div className="feature-card">
+                        <h3>🔒 Pago Seguro</h3>
+                        <p>Recibe pagos de manera segura sin complicaciones. Garantizamos tu satisfacción con transacciones seguras.</p>
+                    </div>
+                    <div className="feature-card">
+                        <h3>🌍 Flexibilidad</h3>
+                        <p>Trabaja desde cualquier lugar, a tu propio ritmo, y con las condiciones que mejor te acomoden.</p>
                     </div>
                 </div>
             </section>
