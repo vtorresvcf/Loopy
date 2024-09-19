@@ -6,6 +6,10 @@
     margin-bottom: 40px;
 }
 
+.favorites-body {
+    min-height: 70vh;
+}
+
 .search-bar1 .form-control {
     flex-grow: 1;
     border-radius: 4px 0 0 4px;
@@ -25,19 +29,4 @@
 .btn-search1:hover {
     background-color: rgb(135, 193, 229);
     color: aliceblue;
-}
-
-.favorites-title {
-    margin-top: 80px;
-    text-align: center; 
-    font-size: 2.5em; 
-    font-weight: bold; 
-    color: #5e88a3; 
-    margin-bottom: 30px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-}
-
-.favorites-card-offer {
-    margin-left: 100px;
 }

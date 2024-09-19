@@ -10,7 +10,7 @@ export const SobreNosotros = () => {
             <section className="about-us">
                 <h2 className="frase">"Somos el puente entre empresas visionarias y programadores freelance talentosos, creando conexiones que impulsan la innovación" </h2>
             </section>
-            <section className="mission-vision-section row mt-5">
+            <section className="mission-vision-section row mt-2">
                 <div className="col-md-6 text-center text-lg-start mission-box">
                     <h2 className="text-secondary fw-bold">Nuestra Misión</h2>
                     <p className="mt-3 text-secondary">
@@ -26,7 +26,7 @@ export const SobreNosotros = () => {
                     </p>
                 </div>
             </section>
-            <section className="values-section text-center mt-5 section-margin">
+            <section className="values-section text-center mt-2 section-margin">
                 <h2 className="text-secondary fw-bold">Nuestros Valores</h2>
                 <div className="row values-grid mt-4">
                     <div className="col-md-3 value-item innovation">
@@ -51,7 +51,7 @@ export const SobreNosotros = () => {
                     </div>
                 </div>
             </section>
-            <section className="why-choose-us-section text-center mt-5 section-margin">
+            <section className="why-choose-us-section text-center mt-2 section-margin">
                 <h2 className="text-secondary fw-bold">¿Por qué elegirnos?</h2>
                 <div className="row benefits-grid mt-4">
                     <div className="col-md-3 benefit-item networking">

@@ -1,81 +1,43 @@
-# WebApp boilerplate with React JS and Flask API
+# Loopy, plataforma que conecta empresas y programadores.
 
-Build web applications using React.js for the front end and python/flask for your backend API.
+Poner aquí los videos de Presentacion empresa y programador
 
-- Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
-- Here is a video on [how to use this template](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
-- Integrated with Pipenv for package managing.
-- Fast deployment to heroku [in just a few steps here](https://start.4geeksacademy.com/backend/deploy-heroku-posgres).
-- Use of .env file.
-- SQLAlchemy integration for database abstraction.
+Loopy es una plataforma web de búsqueda de empleo diseñada para conectar empresas tecnológicas con desarrolladores de software de manera eficiente y personalizada. El objetivo de la plataforma es simplificar el proceso de contratación para las empresas y facilitar a los programadores el acceso a ofertas de trabajo relevantes, ofreciendo herramientas que mejoran la experiencia de ambos grupos. Además, permite la interacción directa mediante email y cuenta con opciones de suscripción premium para destacar ofertas.
 
-### 1) Installation:
 
-> If you use Github Codespaces (recommended) or Gitpod this template will already come with Python, Node and the Posgres Database installed. If you are working locally make sure to install Python 3.10, Node 
+## Características para Desarrolladores:
+- Visualización y postulación a ofertas:
+  Los desarrolladores pueden navegar por las ofertas de empleo publicadas por las empresas, filtrar según sus preferencias (tecnologías, modalidad de trabajo, nivel de experiencia), y       postularse fácilmente.
+- Favoritos:
+  Los usuarios pueden marcar como favoritas aquellas ofertas que les interesen para revisarlas o postular más tarde.
+- Perfil personalizable:
+  Los desarrolladores tienen la opción de crear un perfil detallado, donde pueden agregar proyectos realizados, listar sus habilidades técnicas, incluir su CV y portafolio, y mantener sus datos actualizados.
+- Filtrado avanzado:
+  El sistema de búsqueda permite a los desarrolladores filtrar por su nombre.
 
-It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
+## Características para Empresas:
+- Creación y gestión de ofertas:
+  Las empresas pueden crear ofertas de empleo detalladas, destacando los requisitos y habilidades deseadas, así como los beneficios del puesto.
+- Perfil empresarial:
+  Las empresas pueden personalizar su perfil con información sobre su misión, cultura y proyectos actuales, lo que les ayuda a atraer a los candidatos más adecuados.
+- Gestión de candidatos:
+  Las empresas pueden ver los perfiles de los desarrolladores que postulan a sus ofertas, gestionar las candidaturas y contactar directamente con los postulados a través de la librería EmailJS, lo que facilita una comunicación rápida y directa.
+- Suscripción Premium con Stripe:
+  Las empresas tienen la opción de suscribirse a un plan premium mediante la integración con la API de Stripe. Con la suscripción premium, pueden destacar sus ofertas sobre las de otras empresas, aumentando la visibilidad y atrayendo a más candidatos.
 
-1. Install the python packages: `$ pipenv install`
-2. Create a .env file based on the .env.example: `$ cp .env.example .env`
-3. Install your database engine and create your database, depending on your database you have to create a DATABASE_URL variable with one of the possible values, make sure you replace the valudes with your database information:
 
-| Engine    | DATABASE_URL                                        |
-| --------- | --------------------------------------------------- |
-| SQLite    | sqlite:////test.db                                  |
-| MySQL     | mysql://username:password@localhost:port/example    |
-| Postgress | postgres://username:password@localhost:5432/example |
+## Características Generales:
+- Contacto sin registro:
+  Los visitantes pueden contactar con la plataforma a través de un formulario de contacto por email sin necesidad de registrarse, gracias a la integración de EmailJS.
+-  Sección de FAQs e información:
+  Una sección de preguntas frecuentes (FAQ) y detalles sobre la plataforma está disponible para ayudar a los usuarios a entender mejor cómo funciona y resolver dudas sin necesidad de crear una cuenta.
+-  Autenticación segura:
+  El sistema de autenticación está implementado con JWT (JSON Web Token) para garantizar la seguridad y protección de los datos de los usuarios.
 
-4. Migrate the migrations: `$ pipenv run migrate` (skip if you have not made changes to the models on the `./src/api/models.py`)
-5. Run the migrations: `$ pipenv run upgrade`
-6. Run the application: `$ pipenv run start`
 
-> Note: Codespaces users can connect to psql by typing: `psql -h localhost -U gitpod example`
+## Technologies
+- Frontend
+> React, Javascript, HTML, CSS, Bootstrap, Flux
+- Backend
+> Python, Flask, Flask SQLAlchemy, JWT, PostgreSQL, Stripe Api, EmailJs
 
-### Undo a migration
-
-You are also able to undo a migration by running
-
-```sh
-$ pipenv run downgrade
-```
-
-### Backend Populate Table Users
-
-To insert test users in the database execute the following command:
-
-```sh
-$ flask insert-test-users 5
-```
-
-And you will see the following message:
-
-```
-  Creating test users
-  test_user1@test.com created.
-  test_user2@test.com created.
-  test_user3@test.com created.
-  test_user4@test.com created.
-  test_user5@test.com created.
-  Users created successfully!
-```
-
-### **Important note for the database and the data inside it**
-
-Every Github codespace environment will have **its own database**, so if you're working with more people eveyone will have a different database and different records inside it. This data **will be lost**, so don't spend too much time manually creating records for testing, instead, you can automate adding records to your database by editing ```commands.py``` file inside ```/src/api``` folder. Edit line 32 function ```insert_test_data``` to insert the data according to your model (use the function ```insert_test_users``` above as an example). Then, all you need to do is run ```pipenv run insert-test-data```.
-
-### Front-End Manual Installation:
-
--   Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
-
-1. Install the packages: `$ npm install`
-2. Start coding! start the webpack dev server `$ npm run start`
-
-## Publish your website!
-
-This boilerplate it's 100% read to deploy with Render.com and Heroku in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
-
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).

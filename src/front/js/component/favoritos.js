@@ -7,19 +7,17 @@ export const Favoritos = () => {
     const { store, actions } = useContext(Context);
     const [searchTerm, setSearchTerm] = useState("");
     const [filterTerm, setFilterTerm] = useState("");
-    const [filters, setFilters] = useState({ 
-        
+    const [filters, setFilters] = useState({
+
         searchText: "",
 
     });
 
     useEffect(() => {
-        actions.getFavorites(); 
+        actions.getFavorites();
     }, []);
 
-    if (!store.favorites || store.favorites.length === 0) {
-        return <div className="favorites-no-favorites">No tienes ofertas guardadas como favoritas.</div>;
-    }
+
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
@@ -40,7 +38,7 @@ export const Favoritos = () => {
     };
 
     return (
-        <div className="favorites-body">
+        <div className="favorites-body wrapper">
             <div className="favorites-container">
                 <h1 className="favorites-title">Tus Favoritos</h1>
                 <div className="search-bar1 d-flex">
@@ -58,11 +56,11 @@ export const Favoritos = () => {
                 </div>
                 <div className="favorites-row">
                     {store.favorites
-                        .filter(favoriteOffer => 
+                        .filter(favoriteOffer =>
                             favoriteOffer.name.toLowerCase().includes(filterTerm.toLowerCase())
                         )
                         .map((favoriteOffer) => (
-                            <div className="favorites-card-offer" key={favoriteOffer.id}>
+                            <div className="favorites-card-offer mx-auto" key={favoriteOffer.id}>
                                 <CardOffer id={favoriteOffer.id} />
                             </div>
                         ))}

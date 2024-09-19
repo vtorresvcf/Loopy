@@ -23,10 +23,7 @@ export const LoginPage = () => {
         }
     };
 
-    const handleForgotPassword = () => {
-        // Aquí podrías redirigir a una página de restablecimiento de contraseña
-        navigate('/reset-password'); // Suponiendo que tengas una ruta configurada para reset-password
-    };
+  
 
     return (
         <div className='centrar wrapper'>
@@ -63,11 +60,7 @@ export const LoginPage = () => {
                         />
                     </div>
                     <button type="submit" className="loginbutton">Login</button>
-                    <div>
-                        <p onClick={handleForgotPassword} className="forgot-password-link fst-italic text-decoration-underline">
-                            ¿Olvidaste tu contraseña?
-                        </p>
-                    </div>
+                    
                 </form>
             </section>
         </div>
