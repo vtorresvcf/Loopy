@@ -48,13 +48,13 @@
 
 .btn-submit {
     background-color: rgb(103, 147, 174);
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 .btn-submit:hover {
-    background-color: rgb(0, 157, 255);
+    background-color: rgb(103, 147, 174);
+    font-weight: 700;
     color: white;
-
 }
 
 .btn-cancelar {
@@ -70,11 +70,12 @@
 
 .btn-reset {
     background-color: rgb(103, 147, 174);
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 .btn-reset:hover {
-    background-color: rgb(0, 157, 255);
+    background-color: rgb(103, 147, 174);
+    font-weight: 700;
     color: white;
 
 }

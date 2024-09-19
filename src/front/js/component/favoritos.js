@@ -40,7 +40,7 @@ export const Favoritos = () => {
     return (
         <div className="favorites-body wrapper">
             <div className="favorites-container">
-                <h1 className="favorites-title">Tus Favoritos</h1>
+                <h1 className="favorites-title text-center my-4">Tus Favoritos</h1>
                 <div className="search-bar1 d-flex">
                     <input
                         type="text"
