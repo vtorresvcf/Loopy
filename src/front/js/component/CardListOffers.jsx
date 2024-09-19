@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { CardOffer } from "./CardOffer.jsx";
 import { CardOfferPremium } from "./CardOfferPremium.jsx";
 import { Context } from "../store/appContext.js";
-import "../../styles/CardListOffer.css";
+
 
 export const ListOffers = ({ searchTerm, empleador_id }) => {
     const { store, actions } = useContext(Context);
