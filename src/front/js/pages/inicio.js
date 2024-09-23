@@ -17,7 +17,7 @@ export const Inicio = () => {
                         <Link to={"/register"}>
                             <button className="btn-primary">Soy Programador</button>
                         </Link>
-                        <Link to={"/contratar"}>
+                        <Link to={"/register"}>
                             <button className="btn-secondary">Contratar Freelancers</button>
                         </Link>
                     </div>

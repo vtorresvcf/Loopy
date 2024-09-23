@@ -60,7 +60,7 @@ export const Favoritos = () => {
                             favoriteOffer.name.toLowerCase().includes(filterTerm.toLowerCase())
                         )
                         .map((favoriteOffer) => (
-                            <div className="favorites-card-offer mx-auto" key={favoriteOffer.id}>
+                            <div className="favorites-card-offer" key={favoriteOffer.id}>
                                 <CardOffer id={favoriteOffer.id} />
                             </div>
                         ))}

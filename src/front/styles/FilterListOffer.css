@@ -1,7 +1,6 @@
 .FilterListOffer-box {
-    position: absolute;
-    top: 340px;
-    left: 90px;
+    position: relative;
+    left: 175px;
     border: 1px solid rgb(103, 147, 174);;
     border-radius: 4px;
     color: black;
@@ -9,7 +8,9 @@
     height: fit-content;
     overflow: hidden;
     opacity: 0.85; 
-    margin-bottom: 150px;
+    width: 50%;
+    margin-top: 33px;
+    
     
 }
 .FilterListOffer-box h3{

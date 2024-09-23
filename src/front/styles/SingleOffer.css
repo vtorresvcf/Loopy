@@ -1,74 +1,132 @@
 .container-single-offer {
     display: flex;
     justify-content: center;
-    /* Centra el contenedor horizontalmente */
     padding: 0;
     margin: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .single-offer-box {
     width: 100%;
-    max-width: 350px;
-    border-radius: 8px;
+    max-width: 800px;
+    border-radius: 12px;
     overflow: hidden;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.single-offer-box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
 }
 
 .single-offer-box img {
     max-width: 100%;
+    height: 100px;
+    object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 15px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.single-offer-box img:hover {
+    transform: scale(1.05);
 }
 
 .offer-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
     margin: 0;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .company-info {
     color: #007bff;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .date-posted {
     color: #6c757d;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .offer-rating {
     margin: 5px 0;
+    text-align: center;
 }
 
 .btn-apply {
+    display: block;
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    text-align: center;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #0056b3;
 }
 
 .offer-details {
     list-style-type: none;
     padding: 0;
-    margin: 10px 0;
+    margin: 20px 0;
+    text-align: left;
 }
 
 .offer-details li {
-    background-color: #f8f9fa;
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 4px;
+    background-color: #f1f3f5;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 0.95rem;
 }
 
 .requisitos-minimos {
     color: #6c757d;
+    font-size: 1rem;
+    margin-top: 15px;
+    line-height: 1.6;
 }
 
 .offer-description {
-    margin-top: 10px;
+    font-size: 1rem;
+    color: #495057;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .single-offer-box {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .offer-title {
+        font-size: 1.7rem;
+    }
+
+    .btn-apply {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }

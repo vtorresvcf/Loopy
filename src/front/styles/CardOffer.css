@@ -5,9 +5,10 @@
     border: 1px solid rgb(103, 147, 174);
     transition: box-shadow 0.3s ease;
     max-width: 900px;
-    margin: 0 auto;
-    margin-left: 200px;
+    position: relative; 
+    left: 205px; /* Esto moverá la tarjeta hacia la derecha */
     overflow: hidden;
+    
 }
 
 .card-offer:hover {
@@ -85,18 +86,19 @@
     color: rgb(103, 147, 174);
 }
 
-.btn-primary {
+.btn-primary-detalles {
     background-color: rgb(103, 147, 174);
     color: white;
     border: none;
     padding: 8px 12px;
     font-size: 0.9rem;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    
 }
 
-.btn-primary:hover {
-    background-color: rgb(89, 118, 136);
+.btn-primary-detalles:hover {
+    background-color: rgb(135, 193, 229);
+    color:white;
 }
 
 .text-muted {

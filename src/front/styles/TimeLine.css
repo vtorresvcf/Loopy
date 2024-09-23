@@ -38,6 +38,7 @@
     margin: 0 auto;
     max-width: 1100px; 
     margin-top: -30px;
+    margin-bottom: -50px;
     
 }
 
@@ -50,7 +51,7 @@
 
 .btn-search {
     background-color: rgb(103, 147, 174);
-    color: black;
+    color: white;
     padding: 10px 20px;
     height: auto;
     border-radius: 0 4px 4px 0;
@@ -64,12 +65,7 @@
     color: aliceblue;
 }
 
-.list-offers-container {
-    text-align: center; 
-    margin: 0 auto; 
-    padding: 0 15px; 
-}
 
-.fw-bold titulo1 {
+.fw-bold .titulo1 {
     color: rgb(103, 147, 174);
 }

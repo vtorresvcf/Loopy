@@ -114,7 +114,7 @@ export const SingleOffer = () => {
                                 {offer.nombre_empresa} - {offer.localidad}
                             </p>
                             <p className="date-posted">Publicado el {formatDate(offer.fecha_publicacion)}</p>
-
+    
                             {isProgramador && (
                                 <button className="btn btn-apply mt-2" onClick={handleApplyClick}>
                                     {isSubscribed ? "Desinscribirse" : "Inscribirse"}
@@ -122,6 +122,20 @@ export const SingleOffer = () => {
                             )}
                         </div>
                     </div>
+    
+                    {/* Mover requisitos y descripción aquí */}
+                    <div className="row mt-3">
+                        <div className="col-12 text-center">
+                            <hr />
+                            <h3>Requisitos Mínimos</h3>
+                            <p className="requisitos-minimos">{offer.requisitos_minimos}</p>
+                            <hr />
+                            <h3>Descripción de la Oferta</h3>
+                            <p className="offer-description">{offer.descripcion}</p>
+                        </div>
+                    </div>
+    
+                    {/* Lista de detalles */}
                     <div className="row mt-3">
                         <div className="col-12">
                             <ul className="offer-details">
@@ -134,23 +148,14 @@ export const SingleOffer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="row mt-3">
-                        <div className="col-12 text-center">
-                            <hr />
-                            <h3>Requisitos Mínimos</h3>
-                            <p className="requisitos-minimos">{offer.requisitos_minimos}</p>
-                            <hr />
-                            <h3>Descripción</h3>
-                            <p className="offer-description">{offer.descripcion}</p>
-                            {isProgramador && (
-                                <div className="text-end mt-3">
-                                    <button className="btn btn-apply btn-lg" onClick={handleApplyClick}>
-                                        {isSubscribed ? "Desinscribirse" : "Inscribirse"}
-                                    </button>
-                                </div>
-                            )}
+    
+                    {isProgramador && (
+                        <div className="text-end mt-3">
+                            <button className="btn btn-apply btn-lg" onClick={handleApplyClick}>
+                                {isSubscribed ? "Desinscribirse" : "Inscribirse"}
+                            </button>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
             {isModalOpen && (
@@ -162,5 +167,6 @@ export const SingleOffer = () => {
                 />
             )}
         </>
-    );
-};
+    )
+
+}

@@ -7,6 +7,7 @@ export const FormOffer = () => {
     const { actions } = useContext(Context);
     const navigate = useNavigate();
     const [error, setError] = useState('');
+    const [confirmation, setConfirmation] = useState('');  // Nuevo estado para el mensaje de confirmación
     const [formData, setFormData] = useState({
         name: "",
         nombre_empresa: "",
@@ -48,13 +49,19 @@ export const FormOffer = () => {
             try {
                 const resp = await actions.createJobOffer(updatedFormData);
                 console.log(resp);
-                navigate('/timeline');
+                
+                // Mostrar mensaje de confirmación
+                setConfirmation('La oferta se ha creado exitosamente.');
+
+                // Redirigir después de un tiempo
+                setTimeout(() => {
+                    navigate('/timeline');
+                }, 3000); // Redirige después de 3 segundos
+
             } catch (error) {
-                console.log(error)
+                console.log(error);
                 setError('Ocurrió un error al crear la oferta.');
             }
-
-
         }
     };
 
@@ -66,9 +73,9 @@ export const FormOffer = () => {
                         <div className="col-12">
                             <div className="form-header">
                                 <h2 className="display-4 fw-bold my-3">
-                                    ¡Lleva Tu Equipo al Siguiente Nivel!
+                                    ¡Conecta con profesionales cualificados!
                                 </h2>
-                                <span className="fw-bold my-3">Completa el formulario para publicar tu oferta de empleo y conecta con profesionales cualificados.</span>
+                                <span className="fw-bold my-3">Rellena el formulario para crear una oferta</span>
                             </div>
                         </div>
                     </div>
@@ -76,6 +83,8 @@ export const FormOffer = () => {
                 <div className="form-box my-5 shadow-lg">
                     <form onSubmit={e => handleSubmit(e)}>
                         {error && <div className="alert alert-danger">{error}</div>}
+                        {confirmation && <div className="alert alert-success">{confirmation}</div>}
+                        
                         <div className="row my-3 text-secondary fw-bold">
                             <div className="col-4 d-flex flex-column">
                                 <label htmlFor="name" className="form-label my-3">Titulo de la oferta</label>
@@ -187,7 +196,7 @@ export const FormOffer = () => {
                                     onChange={handleChange}
                                     value={formData.estudios_minimos}
                                 >
-                                    <option value="opcion">Seleccione una opccion</option>
+                                    <option value="opcion">Seleccione una opción</option>
                                     <option value="Sin estudios">Sin estudios</option>
                                     <option value="Primaria">Educacion primaria</option>
                                     <option value="ESO">Educacion Secundaria Obligatoria</option>
@@ -210,7 +219,6 @@ export const FormOffer = () => {
                                     onChange={handleChange}
                                     value={formData.tipo_contrato}
                                 />
-
                             </div>
                         </div>
                         <div className="row my-3">
@@ -270,16 +278,12 @@ export const FormOffer = () => {
                         </div>
                         <div className="d-flex justify-content-end me-3 button-box">
                             <button type="submit" className="btn btn-submit mx-3 my-3">
-                                Enviar
-                            </button>
-                            <button type="reset" className="btn btn-reset my-3">
-                                Cancelar
+                                Crear oferta
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-          
         </>
     );
 };

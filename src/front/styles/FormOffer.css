@@ -3,13 +3,14 @@
     position: relative;
     height: fit-content;
     width: 60%;
+   
 }
 
 .form-box {
     max-width: 100%;
     max-height: 100%;
     background-color: white;
-    border: 1px solid #f3eaea;
+    border: 1px solid rgb(103, 147, 174);
     border-radius: 4px;
     padding: 20px;
     justify-content: center;
@@ -21,14 +22,21 @@
 
 .form-header h2 {
     font-size: 3.5rem;
-    color: rgba(33, 37, 41, 0.75);
-    text-shadow: 5px 5px 15px #909090;
+    color: rgb(103, 147, 174);
+    width: 100vw; /* Ocupar el ancho completo de la ventana */
+    position: relative;
+    left: 50%; /* Centrar en la página */
+    transform: translateX(-50%); /* Ajustar el centrado */
+    text-align: center;
+    background-color: #f0f4f8; /* Fondo suave para hacer que destaque */
+    padding: 20px 0; /* Espaciado alrededor */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Añadir una sombra suave */
 }
 
 .form-header span {
-    font-size: 2rem;
-    color: rgb(103, 147, 174);
-    text-shadow: 5px 5px 15px #909090;
+    font-size: 1rem;
+    color: rgba(33, 37, 41, 0.75);
+    
 }
 
 .button-box {
@@ -52,34 +60,12 @@
 }
 
 .btn-submit:hover {
-    background-color: rgb(103, 147, 174);
-    font-weight: 700;
+    background-color: rgb(135, 193, 229);
     color: white;
 }
 
-.btn-cancelar {
-    background-color: rgb(103, 147, 174);
-    color: rgb(0, 0, 0);
-}
 
-.btn-cancelar:hover {
-    background-color: rgb(0, 157, 255);
-    color: white;
 
-}
-
-.btn-reset {
-    background-color: rgb(103, 147, 174);
-    color: white;
-}
-
-.btn-reset:hover {
-    background-color: rgb(103, 147, 174);
-    font-weight: 700;
-    color: white;
-
-}
-
-.last-row {
-    position: relative;
+.form-container .form-box label {
+    color: rgb(103, 147, 174)!important; 
 }

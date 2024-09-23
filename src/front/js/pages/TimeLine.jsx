@@ -54,8 +54,14 @@ export const TimeLine = () => {
                     Buscar
                 </button>
             </div>
+            <div className="offers-container d-flex mt-5">
+        <div className="list-offers-container">
             <ListOffers searchTerm={filterTerm} filters={filters} />
+        </div>
+        <div className="filter-list-container ms-4">
             <FilterListOffer onFilterChange={handleFiltersChange} />
+        </div>
+    </div>
         </>
     );
 };

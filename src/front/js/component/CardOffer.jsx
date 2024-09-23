@@ -110,7 +110,7 @@ export const CardOffer = ({ id }) => {
                     </ul>
                     <div className="d-flex justify-content-between align-items-end mt-3">
                         <span className="text-muted small">Publicado: {formatDate(offer.fecha_publicacion)}</span>
-                        <button onClick={handleViewDetails} className="btn btn-primary btn-sm">
+                        <button onClick={handleViewDetails} className="btn btn-primary-detalles btn-sm">
                             Ver detalles
                         </button>
                     </div>
