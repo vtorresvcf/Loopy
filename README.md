@@ -1,6 +1,8 @@
 # Loopy, plataforma que conecta empresas y programadores.
 
-Preparando... Vídeos de Presentacion empresa y programador
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fd5d8c43-c68a-4305-81c6-52e4f1cda963" alt="Demostración App de Loopy">
+</p>
 
 Loopy es una plataforma web de búsqueda de empleo diseñada para conectar empresas tecnológicas con desarrolladores de software de manera eficiente y personalizada. El objetivo de la plataforma es simplificar el proceso de contratación para las empresas y facilitar a los programadores el acceso a ofertas de trabajo relevantes, ofreciendo herramientas que mejoran la experiencia de ambos grupos. Además, permite la interacción directa mediante email y cuenta con opciones de suscripción premium para destacar ofertas.
 
