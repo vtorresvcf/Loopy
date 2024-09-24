@@ -1,10 +1,8 @@
 .container-single-offer {
     display: flex;
     justify-content: center;
-    padding: 0;
-    margin: 0;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .single-offer-box {
@@ -16,6 +14,8 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
     transition: all 0.3s ease-in-out;
+    border: 1px solid rgb(103, 147, 174);
+    
 }
 
 .single-offer-box:hover {
@@ -33,6 +33,10 @@
     transition: transform 0.3s ease;
 }
 
+.num-postulados {
+    color:#6693ae;
+}
+
 .single-offer-box img:hover {
     transform: scale(1.05);
 }
@@ -41,18 +45,21 @@
     font-size: 2rem;
     margin: 0;
     font-weight: 700;
-    color: #333;
+    color: #6693ae;
     text-align: center;
-    margin-bottom: 10px;
+    margin-top:50px;
+    margin-left: -150px;
 }
 
 .company-info {
-    color: #007bff;
+    color: #6693ae;
     cursor: pointer;
     margin-bottom: 10px;
     text-align: center;
     font-weight: 500;
     font-size: 1.1rem;
+    margin-left: -150px;
+    margin-top: 10px;
 }
 
 .date-posted {
@@ -60,6 +67,14 @@
     font-size: 0.9rem;
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 70px;
+    margin-left: 180px;
+}
+.titulo-single-offers-page {
+    color: #6693ae;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .offer-rating {
@@ -69,7 +84,7 @@
 
 .btn-apply {
     display: block;
-    background-color: #007bff;
+    background-color: #6693ae;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -83,7 +98,7 @@
 }
 
 .btn-apply:hover {
-    background-color: #0056b3;
+    background-color: rgb(135, 193, 229);
 }
 
 .offer-details {
@@ -94,11 +109,12 @@
 }
 
 .offer-details li {
-    background-color: #f1f3f5;
+    background-color: rgb(234, 232, 232);
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 6px;
     font-size: 0.95rem;
+    color: #6693ae;
 }
 
 .requisitos-minimos {

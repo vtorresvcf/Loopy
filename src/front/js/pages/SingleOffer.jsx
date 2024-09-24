@@ -1,4 +1,3 @@
-// SingleOffer.jsx
 import React, { useContext, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.js";
@@ -95,60 +94,52 @@ export const SingleOffer = () => {
 
     return (
         <>
-            <div className="container my-4 p-0 wrapper">
+            <div className="container-single-offer my-4 p-0 wrapper">
+                <h1 className="titulo-single-offers-page">¡Inscríbete y trabaja en proyectos innovadores!</h1>
                 <div className="card single-offer-box shadow-sm p-3 shadow-lg mx-auto">
-                    <div className="row">
-                        <div className="col-3">
+                    <div className="row align-items-center">
+                        <div className="col-4 text-center">
                             <img
-                                src="https://img.freepik.com/vector-premium/concepto-pequena-empresa-fachada-cafeteria-tiendas-ventas_654623-1161.jpg"
+                                src="https://static.wixstatic.com/media/99e904_e49184c4e6fe4e14bb9ea13b5e9d009e~mv2.png/v1/fill/w_640,h_640,al_c,lg_1,q_90,enc_auto/99e904_e49184c4e6fe4e14bb9ea13b5e9d009e~mv2.png"
                                 alt="Company Logo"
                                 className="img-fluid rounded-circle"
+                                style={{ width: "200px", height: "200px" }} // Imagen más grande
                             />
                             <div className="text-muted mt-2">
                                 <span className="num-postulados">{numeroInscritos} Inscritos</span>
                             </div>
                         </div>
-                        <div className="col-9">
+                        <div className="col-8 d-flex flex-column">
                             <h2 className="offer-title">{offer.name}</h2>
                             <p className="company-info" onClick={handleViewCompany}>
                                 {offer.nombre_empresa} - {offer.localidad}
                             </p>
                             <p className="date-posted">Publicado el {formatDate(offer.fecha_publicacion)}</p>
-    
-                            {isProgramador && (
-                                <button className="btn btn-apply mt-2" onClick={handleApplyClick}>
-                                    {isSubscribed ? "Desinscribirse" : "Inscribirse"}
-                                </button>
-                            )}
                         </div>
                     </div>
-    
-                    {/* Mover requisitos y descripción aquí */}
+
                     <div className="row mt-3">
                         <div className="col-12 text-center">
                             <hr />
-                            <h3>Requisitos Mínimos</h3>
-                            <p className="requisitos-minimos">{offer.requisitos_minimos}</p>
-                            <hr />
-                            <h3>Descripción de la Oferta</h3>
                             <p className="offer-description">{offer.descripcion}</p>
+                            <hr />
                         </div>
                     </div>
-    
-                    {/* Lista de detalles */}
+
                     <div className="row mt-3">
                         <div className="col-12">
                             <ul className="offer-details">
-                                <li><strong>Idiomas:</strong> {offer.idiomas}</li>
-                                <li><strong>Salario:</strong> {offer.salario}</li>
-                                <li><strong>Estudios mínimos:</strong> {offer.estudios_minimos}</li>
-                                <li><strong>Modalidad:</strong> {offer.modalidad}</li>
-                                <li><strong>Tipo de contrato:</strong> {offer.tipo_contrato}</li>
-                                <li><strong>Localidad:</strong> {offer.localidad}</li>
+                                <li>📋 <strong>Requisitos mínimos:</strong> {offer.requisitos_minimos} </li>
+                                <li>🌍 <strong>Idiomas:</strong> {offer.idiomas}</li>
+                                <li>💸 <strong>Salario:</strong> {offer.salario}</li>
+                                <li>🎓 <strong>Estudios mínimos:</strong> {offer.estudios_minimos}</li>
+                                <li>🏠 <strong>Modalidad:</strong> {offer.modalidad}</li>
+                                <li>📝 <strong>Tipo de contrato:</strong> {offer.tipo_contrato}</li>
+                                <li>📍 <strong>Localidad:</strong> {offer.localidad}</li>
                             </ul>
                         </div>
                     </div>
-    
+
                     {isProgramador && (
                         <div className="text-end mt-3">
                             <button className="btn btn-apply btn-lg" onClick={handleApplyClick}>
@@ -167,6 +158,5 @@ export const SingleOffer = () => {
                 />
             )}
         </>
-    )
-
-}
+    );
+};
