@@ -1,4 +1,4 @@
-# Loopy, plataforma que conecta empresas y programadores.
+# Loopy, web que conecta empresas y programadores.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fd5d8c43-c68a-4305-81c6-52e4f1cda963" alt="Demostración App de Loopy">
